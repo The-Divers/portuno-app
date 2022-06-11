@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0; 
+  overflow: hidden;
+}
+
+/* GUIA DE ESTILO */
+:root{
+  --corPrincipal:#464646;
+  --corFundo:#F6F6F6;
+  --corFonteEscura: #000;
+  --corFonteClara: #FAFAFA;
+  --corVerde:#757575;
+  --corVermelho:#757575;
+  --corDetalhes: #DDDDDD;
+  --corSalas: #FAFAFA;
+
+  --fonteTitulosTm: 24px;
+  --fonteSalaTm: 18px;
+  --fonteBtnMaxTm: 16px;
+  --fonteConteudoTm: 16px;
+  --fonteBtnMinTm: 12px;
+
+  --fonteTitulosPeso:600;
+  --fonteSalaPeso:600;
+  --fonteBtnMaxPeso:500;
+  --fonteConteudoRegPeso:500;
+  --fonteConteudoLigPeso:300;
+  --fonteBtnMinPeso: 300;
+}
+
+/* TELA DE LOGIN */
+#logotipo{
+  margin-top: 50%;
+  margin-bottom: 18.75%;
+}
+
+.logininput{
+  display: block;
+  width:83.091787439%;
+  max-width: 500px;
+  height: 48px;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 5.35714285714%;
+  padding-left: 16px;
+  border: 1px solid var(--corDetalhes);
+  border-radius: 10px;
+}
+
+input#btnLogar{
+  width: 41.062801932%;
+  max-width: 246px;
+  height: 48px;
+  margin-top: 14.9553571429%;
+  margin-bottom: 46.428571%;
+  color: var(--corFonteClara);
+  background: var(--corPrincipal);
+  border: 0;
+  border-radius: 10px;
+}
+
+@media (min-width: 600px) {
+  #logotipo{
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
+  .logininput{
+    margin-bottom: 20px;
+  }
+  input#btnLogar{
+    margin-top: 50px;
+  }
+}
