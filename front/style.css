@@ -33,47 +33,147 @@ html, body {
   --fonteConteudoLigPeso:300;
   --fonteBtnMinPeso: 300;
 }
+/* COMPONENTES GERAIS */
+
+/* TITULOS */
+.titulo{
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 3.86473429952%;
+  margin-top: 28.5024154589%;
+  margin-bottom: 15.9420289855%;
+}
+
+/* INPUTS */
+.input{
+  display: block;
+  border: 1px solid var(--corDetalhes);
+  border-radius: 10px;
+  width:83.091787439%;
+  max-width: 500px;
+  height: 48px;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 5.79710144927%;
+  padding-left: 16px;
+}
+
+/* BOTAO */  
+.btn{
+  width: 41.062801932%;
+  max-width: 246px;
+  height: 48px;
+  background: var(--corPrincipal);
+  color: var(--corFonteClara);
+  border: 0;
+  border-radius: 10px;
+  margin-top: 16.1835748793%;
+  margin-bottom: 50.24154543%;
+}
+
+/* BOTTOM NAVBAR */
+i{
+  width: 32px;
+  height: 32px;
+}
+
+/* BOTTOM NAVBAR */
+.navbar {
+  background-color: var(--corPrincipal);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-left: 7.60869565217%;
+  padding-right: 7.60869565217%;
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding-left: 10.2657004831%;
+  padding-right: 10.2657004831%;
+  padding-top: 3.86473429952%;
+  padding-bottom: 1.93236714976%;
+  text-decoration: none;
+  font-size: 17px;
+}
+.nav-item{
+  display: inline-block;
+  margin-left: 10.2657004831%;
+  margin-right:10.2657004831%;
+  margin-top: 3.86473429952%;
+  margin-bottom: 3.86473429952%;
+}
+
+/* ESTILOS PARA TELAS ESPECÍFICAS */
 
 /* TELA DE LOGIN */
 #logotipo{
   margin-top: 50%;
   margin-bottom: 18.75%;
 }
-
-.logininput{
-  display: block;
-  width:83.091787439%;
-  max-width: 500px;
-  height: 48px;
-  margin: auto;
-  margin-top: 0;
-  margin-bottom: 5.35714285714%;
-  padding-left: 16px;
-  border: 1px solid var(--corDetalhes);
-  border-radius: 10px;
-}
-
 input#btnLogar{
-  width: 41.062801932%;
-  max-width: 246px;
-  height: 48px;
-  margin-top: 14.9553571429%;
-  margin-bottom: 46.428571%;
-  color: var(--corFonteClara);
-  background: var(--corPrincipal);
-  border: 0;
-  border-radius: 10px;
+  margin-top: 23.1884057971%;
+  margin-bottom: 54.1062801932%;
 }
 
-@media (min-width: 600px) {
-  #logotipo{
-    margin-top: 100px;
-    margin-bottom: 50px;
+/* TELA DE PERFIL */
+#editar{
+  font-family: 'Roboto';
+  width: 100%;
+  font-size: 14px;
+  color: var(--corPrincipal);
+  vertical-align: middle;
+  text-decoration: none;
+  margin-bottom: 1.93236714976%;
+}
+#editar p{
+  display: inline-block;
+}
+#btnLogout{
+  margin-top:23.1594202898%;
+  margin-bottom: 30.9178743961%;
+}
+
+/* ESTILOS PARA TELAS DIFERENTES */
+@media (max-height: 736px) {
+  input#btnLogar{
+    margin-top: 20px;
   }
-  .logininput{
-    margin-bottom: 20px;
+  input#btnLogout{
+    width: 100px; 
+    height: 40px;
+    margin-top: 0px;
+  }
+}
+@media (min-width: 600px){ 
+  #logotipo, .titulo{
+    margin-top: 80px;
+    margin-bottom: 60px;
+  }
+  .input{
+    height: 40px;
+    margin-bottom: 24px;
+  }
+  #editar{
+   margin-top: 24px;
   }
   input#btnLogar{
     margin-top: 50px;
+  }
+  input#btnLogout{
+    width: 100px; 
+    height: 40px;
+    margin-top: 10px;
+  }
+  .navbar a{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  i{
+    width: 10px;
+    height: 10px;
   }
 }
