@@ -4,6 +4,7 @@
 html, body {
   height: 100%;
   width: 100%;
+  max-width: 1366px;
   padding: 0;
   margin: 0; 
   overflow: hidden;
@@ -136,6 +137,43 @@ input#btnLogar{
   margin-top:23.1594202898%;
   margin-bottom: 30.9178743961%;
 }
+/* TELA DE SALA */
+#nomeSala{
+  margin-bottom: 4.10628019324%;
+}
+#satusSala {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: (--corVerde);
+}
+#informacoesSalas{
+  text-align: left;
+  margin-left: 17.6328502%;
+  margin-top:22.9910714%;
+}
+.topico-sala {
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 16px;
+}
+.conteudo-sala{
+  margin-bottom: 3.86473429952%;
+}
+.conteudo-sala li{
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 18px;
+  margin-top: 1.89732143%;
+  margin-bottom: 1.89732143%;
+  margin-left: -30px;
+  list-style-type: none;
+}
+#btnSolicitar{
+  margin-top: 36.7149758454%;
+}
 
 /* ESTILOS PARA TELAS DIFERENTES */
 @media (max-height: 736px) {
@@ -147,11 +185,38 @@ input#btnLogar{
     height: 40px;
     margin-top: 0px;
   }
+  #btnSolicitar{
+    width: 100px; 
+    height: 40px;
+    margin-top: 0px;
+  }
 }
 @media (min-width: 600px){ 
   #logotipo, .titulo{
     margin-top: 80px;
     margin-bottom: 60px;
+  }
+  #nomeSala{
+    margin-bottom: 15px;
+  }
+  #statusSala{
+    font-size: 16px;
+    margin-bottom:50px;
+  }
+  #informacoesSalas{
+    text-align: left;
+    height: 100px;
+    margin: 0;
+    margin-left: 37.0673499268%;
+    margin-bottom: 200px;
+  }
+  .topico-sala{
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+  .conteudo-sala li{
+    margin-top: 0;
+    margin-bottom: 0;
   }
   .input{
     height: 40px;
@@ -163,7 +228,8 @@ input#btnLogar{
   input#btnLogar{
     margin-top: 50px;
   }
-  input#btnLogout{
+  input#btnSolicitar,
+  input#btnLogout {
     width: 100px; 
     height: 40px;
     margin-top: 10px;

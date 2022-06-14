@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Sala</title>
+   <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <!-- CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="text-align:center;">
+    <!-- NOME DA SALA E STATUS -->
+    <h1 class="titulo" id="nomeSala" >Sala 01</h1>
+    <h2 id="statusSala">Disponível</h2>
+    <!-- CONTEUDO DA SALA -->
+    <div id="informacoesSalas">
+        <h4 class="topico-sala">Tipo da sala</h4>
+          <ul class="conteudo-sala" id="tipoSala">
+            <li>Sala de aula</li>
+          </ul>
+        <h4 class="topico-sala">Quantidade de espaços</h4>
+          <ul class="conteudo-sala" id="espacoSala">
+            <li>20 carteiras</li>
+          </ul>
+        <h4 class="topico-sala">Contem</h4>
+        <ul class="conteudo-sala" id="itensSala">
+            <li>20 computadores</li>
+            <li>01 Projetor</li>
+            <li>01 Camera</li>
+        </ul>
+    </div>
+    <!-- BOTÃO DE SOLICITAÇAO -->
+    <input type="button" id="btnSolicitar" class="btn" value="Solicitar">
+
+    <!-- BOTTOM NAVABAR -->
+    <nav class="navbar">
+        <a href="#voltar">
+            <i class="feather" data-feather="arrow-left"></i>  
+        </a>
+        <a href="/home">
+            <i class="feather" data-feather="home"></i>
+        </a>
+        <a href="/perfil">
+            <i class="feather" data-feather="user"></i>
+        </a>
+    </nav>
+  <!-- Feather icons js start -->
+    <script>
+        feather.replace()
+      </script>
+    
+</body>
+</html>
