@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Portuno - Sistema de ocupação de salas</title>
+   <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <!-- CSS -->
@@ -11,10 +13,96 @@
 </head>
 <body>
 
+<!-- Topo -->
+  <header class="topo">
+    <!-- Andares -->
+    <select class="andar-titulo" size="1" onchange="location.href=this.value">
+      <option value="front/home.html" class="selected" selected>Térreo</option>
+      <option value="front/andar1.html">Andar 1</option>
+      <option value="front/andar2.html"><a href="andar2.html">Andar 2</a></option>
+    </select> 
+    <!-- Filtro -->
+    <div id="btnFiltro">
+      <i data-feather="filter"></i>Filtros
+    </div>
+  </header
+<!-- Salas -->
+  <div id="salas">
+    <div class="caixaSala esquerda">
+      <h2 class="nome-sala">Lab. 01</h2>
+      <h3 class="status"><mark>Ocupado</mark></h3>
+      <i class="buttonPlus" class="feather" data-feather="plus"></i> 
+    </div>
+    
+    <div class="caixaSala direita">
+      <h2 class="nome-sala">Lab. 02</h2>
+      <h3 class="status"><mark>Disponível</mark></h3>
+      <i class="buttonPlus" class="feather" data-feather="plus"></i> 
+    </div>
+    
+    <div class="caixaSala esquerda">
+      <h2 class="nome-sala">Lab. 03</h2>
+      <h3 class="status"><mark>Ocupado</mark></h3>
+      <i class="buttonPlus" class="feather" data-feather="plus"></i> 
+    </div>
+    
+    <div class="caixaSala direita">
+      <h2 class="nome-sala">Lab. 04</h2>
+      <h3 class="status"><mark>Disponível</mark></h3>
+      <i class="buttonPlus" class="feather" data-feather="plus"></i> 
+    </div>
 
+    <div class="caixaSala esquerda">
+      <h2 class="nome-sala">Lab. 03</h2>
+      <h3 class="status"><mark>Ocupado</mark></h3>
+      <i class="buttonPlus" class="feather" data-feather="plus"></i> 
+    </div>
+    
+    <div class="caixaSala direita">
+      <h2 class="nome-sala">Lab. 04</h2>
+      <h3 class="status"><mark>Disponível</mark></h3>
+      <i class="buttonPlus" class="feather" data-feather="plus"></i> 
+    </div>
+    
+    <div class="caixaSala esquerda">
+      <h2 class="nome-sala">Lab. 03</h2>
+      <h3 class="status"><mark>Ocupado</mark></h3>
+      <i class="buttonPlus" class="feather" data-feather="plus"></i> 
+    </div>
+    
+    <div class="caixaSala direita">
+      <h2 class="nome-sala">Lab. 04</h2>
+      <h3 class="status"><mark>Disponível</mark></h3>
+      <i class="buttonPlus" class="feather" data-feather="plus"></i> 
+    </div>
 
+    <div class="caixaSala esquerda">
+      <h2 class="nome-sala">Lab. 03</h2>
+      <h3 class="status"><mark>Ocupado</mark></h3>
+      <i class="buttonPlus" class="feather" data-feather="plus"></i> 
+    </div>
+    
+    <div class="caixaSala direita complemento-sala">
+    </div>
+    
+  </div> 
+<!-- Footer -->
+  <nav class="navbar">
+    <a href="#voltar">
+      <i class="feather" data-feather="arrow-left"></i>  
+    </a>
+    <a href="#home">
+      <i class="feather" data-feather="home"></i>
+    </a>
+    <a href="#perfil">
+      <i class="feather" data-feather="user"></i>
+    </a>
+  </nav>
 
-  
+<!-- Feather icons js start -->
+  <script>
+    feather.replace()
+  </script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

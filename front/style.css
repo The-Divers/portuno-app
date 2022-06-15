@@ -174,6 +174,107 @@ input#btnLogar{
 #btnSolicitar{
   margin-top: 36.7149758454%;
 }
+/* TELA DE HOME */
+
+/* TOPO */
+.topo{
+  float: left;
+  display: block;
+  width: 83.0917874396%;
+  margin-left:8.45410628019%;
+  margin-right:8.45410628019%;
+  margin-top: 10.8695652174%;
+  margin-bottom: 5.79710144928%;
+}
+.andar-titulo{
+  float: left;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  width: 120px;
+  margin-left: 10px;
+  padding-right: 15px;
+  border: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url(./img/select.png) no-repeat center right;
+}
+#btnFiltro{
+  float: right;
+  font-family: 'Roboto';
+  font-size: 16px;
+  line-height: 6px;
+  padding: 0;
+  position: relative;
+  top: 0.5em;
+  right: 0.6em;
+}
+/* SALAS */
+#salas{
+  max-width: 600px;
+  min-width: 345px;
+  height: 23.1884057971%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.nome-sala{
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  text-align: left;
+  letter-spacing: 1.25px;
+  margin-left: 18px;
+  margin-top: 20px;
+  width: 70.2%;
+}
+.caixaSala{
+  max-width: 300px;
+  width: 39.13%;
+  display: flex;
+  flex-wrap: wrap;
+  background: #FAFAFA;
+  box-shadow: 0px 6px 10px -2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding-bottom: 2.4154589372%;
+  margin-bottom: 3.86473429952%;
+}
+.complemento-sala{
+  border: 0;
+  box-shadow: 0;
+  background: rgba(0,0,0);
+  opacity: 0;
+}
+.esquerda{
+  margin-right: 1.9%;
+  margin-left: auto;
+}
+.direita{
+  margin-right: auto;
+  margin-left: 1.9%;
+}
+/* ELEMENTOS DA SALA */
+.status{
+  margin-top: 1.93236714976%;
+  font-size: 12px;
+  height: 3.86473429952%;
+  width: 48.6%;
+}
+.buttonPlus{
+  margin-right: 4.59%;
+  margin-left: auto;
+}
+mark{
+  border-radius: 20px;
+  margin-top:1.93236714976%;
+  padding: 5px 10px 5px 10px;
+  margin-left: 15px;
+  width: 48.6%;
+  background: var(--corVermelho);
+  color: #FAFAFA;
+}
+
 
 /* ESTILOS PARA TELAS DIFERENTES */
 @media (max-height: 736px) {
@@ -189,6 +290,14 @@ input#btnLogar{
     width: 100px; 
     height: 40px;
     margin-top: 0px;
+  }
+  .topo{
+    margin-top: 10px;
+    margin-bottom: 12px; 
+  }
+  #salas{
+    overflow-y: scroll;
+    height: 600px;
   }
 }
 @media (min-width: 600px){ 
@@ -241,5 +350,27 @@ input#btnLogar{
   i{
     width: 10px;
     height: 10px;
+  }
+  .topo{
+    margin-top: 20px;
+  }
+  .buttonPlus{
+    width: 20px;
+    height: 20px;
+  }
+   #salas{
+    width: 70%;
+    margin-top: 100px;
+    height: 350px;
+    min-width: 600px;
+    overflow: hidden;
+  }
+  .caixaSala{
+    width: 120px;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    margin-left: 24px;
+    margin-bottom: 20px;
   }
 }
