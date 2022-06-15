@@ -171,8 +171,11 @@ input#btnLogar{
   margin-left: -30px;
   list-style-type: none;
 }
+.disabled{
+  cursor: not-allowed;
+}
 #btnSolicitar{
-  margin-top: 36.7149758454%;
+  margin-top: 50px;
 }
 /* TELA DE HOME */
 

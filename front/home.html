@@ -37,7 +37,7 @@
       rooms.forEach((el) => {
         if(el.position == position){
           document.writeln(`
-            <div class='caixaSala ${cont%2==0?'esquerda':'direita'}'>
+            <div onclick='window.location.href = "sala.html?sala=${el.id}"' class='caixaSala ${cont%2==0?'esquerda':'direita'}'>
               <h2 class='nome-sala'>${el.name}</h2>
               <h3 class='status'><mark>${el.status}</mark></h3>
               <i class='buttonPlus' class='feather' data-feather='plus'></i> 

@@ -10,31 +10,74 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <!-- CSS -->
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Scripts Mock -->
+  <script src="MockRooms.js"></script>
 </head>
 <body style="text-align:center;">
+  <!-- INJEÇÃO DE INFORMAÇÕES DA SALA -->
+  <script>
+    let url = window.location.href.split("?sala=");
+    let id = url[1];
+
+    function theSameId(el){
+      return el.id == id;
+    }
+    
+    room = rooms.filter(theSameId);
+    room = room[0];
+  </script>
     <!-- NOME DA SALA E STATUS -->
-    <h1 class="titulo" id="nomeSala" >Sala 01</h1>
-    <h2 id="statusSala">Disponível</h2>
+    <h1 class="titulo" id="nomeSala" >
+      <script> document.writeln(room.fullName) </script>
+    </h1>
+    <h2 id="statusSala">
+      <script> 
+        document.write(room.status);
+      </script>
+    </h2>
     <!-- CONTEUDO DA SALA -->
     <div id="informacoesSalas">
         <h4 class="topico-sala">Tipo da sala</h4>
           <ul class="conteudo-sala" id="tipoSala">
-            <li>Sala de aula</li>
+            <li>
+              <script> document.writeln(room.roomType) </script>
+            </li>
           </ul>
         <h4 class="topico-sala">Quantidade de espaços</h4>
           <ul class="conteudo-sala" id="espacoSala">
-            <li>20 carteiras</li>
+            <li>
+              <script> document.writeln(room.roomCapacity) </script>
+            </li>
           </ul>
         <h4 class="topico-sala">Contem</h4>
         <ul class="conteudo-sala" id="itensSala">
-            <li>20 computadores</li>
-            <li>01 Projetor</li>
-            <li>01 Camera</li>
+          <script>
+            room.contains.forEach(el => {
+              document.writeln(`
+                <li>${el}</li>
+              `);
+            });
+          </script>
         </ul>
+        <script>
+          if(room.status == "ocupado"){
+            document.writeln(`
+                <h4 class="topico-sala">Ocupador</h4>
+                <ul class="conteudo-sala" id="itensSala">
+                  <li>${room.userOccupying}</li>
+                </ul>
+            `);
+          }
+          
+        </script>
     </div>
-    <!-- BOTÃO DE SOLICITAÇAO -->
-    <input type="button" id="btnSolicitar" class="btn" value="Solicitar">
-
+    <!-- INJEÇÃO DE BOTÃO DE SOLICITAÇAO -->
+  <script>
+    document.writeln(`
+      <input type='button' class='btn btn-secondary  ${room.status == "ocupado"?"disabled":""}' id='btnSolicitar' value='Solicitar'>
+    `);
+  </script>
+  
     <!-- BOTTOM NAVABAR -->
     <nav class="navbar">
         <a href="#voltar">
