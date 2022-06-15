@@ -30,11 +30,15 @@
     <h1 class="titulo" id="nomeSala" >
       <script> document.writeln(room.fullName) </script>
     </h1>
-    <h2 id="statusSala">
-      <script> 
-        document.write(room.status);
-      </script>
-    </h2>
+    <!--INJEÇÃO DO STATUS-->
+    <script> 
+      document.write(`
+        <h2 id='statusSala' class='${room.status == "ocupado" ? "ocupado" : "disponivel"}'>
+            ${room.status}
+        </h2>
+      `);
+    </script>
+    
     <!-- CONTEUDO DA SALA -->
     <div id="informacoesSalas">
         <h4 class="topico-sala">Tipo da sala</h4>
@@ -74,21 +78,39 @@
     <!-- INJEÇÃO DE BOTÃO DE SOLICITAÇAO -->
   <script>
     document.writeln(`
-      <input type='button' class='btn btn-secondary  ${room.status == "ocupado"?"disabled":""}' id='btnSolicitar' value='Solicitar'>
+      <input type='button' class='botao btn btn-secondary  ${room.status == "ocupado"?"disabled":""}' id='btnSolicitar' value='Solicitar'>
     `);
   </script>
   
     <!-- BOTTOM NAVABAR -->
     <nav class="navbar">
-        <a href="#voltar">
-            <i class="feather" data-feather="arrow-left"></i>  
-        </a>
-        <a href="/home">
-            <i class="feather" data-feather="home"></i>
-        </a>
-        <a href="/perfil">
-            <i class="feather" data-feather="user"></i>
-        </a>
+      <a href="#voltar">
+        <i class="feather" data-feather="arrow-left"></i>  
+      </a>
+      <script>
+        if(room.position == 0){
+          document.writeln(`
+            <a href='home.html">
+              <i class="feather" data-feather="home"></i>
+            </a>
+          `);
+        }else if(room.position == 1){
+          document.writeln(`
+            <a href='andar1.html'>
+              <i class='feather' data-feather='home'></i>
+            </a>
+          `);
+        }else{
+          document.writeln(`
+            <a href='andar2.html'>
+              <i class='feather' data-feather='home'></i>
+            </a>
+          `);
+        }
+      </script>
+      <a href="perfil.html">
+        <i class="feather" data-feather="user"></i>
+      </a>
     </nav>
   <!-- Feather icons js start -->
     <script>

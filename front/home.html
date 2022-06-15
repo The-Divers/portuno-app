@@ -39,7 +39,7 @@
           document.writeln(`
             <div onclick='window.location.href = "sala.html?sala=${el.id}"' class='caixaSala ${cont%2==0?'esquerda':'direita'}'>
               <h2 class='nome-sala'>${el.name}</h2>
-              <h3 class='status'><mark>${el.status}</mark></h3>
+              <h3 class='status'><mark class='${el.status == "ocupado"?"ocupado":"disponivel"}'>${el.status}</mark></h3>
               <i class='buttonPlus' class='feather' data-feather='plus'></i> 
             </div>
           `);
@@ -57,10 +57,10 @@
     <a href="#voltar">
       <i class="feather" data-feather="arrow-left"></i>  
     </a>
-    <a href="#home">
+    <a href="home.html">
       <i class="feather" data-feather="home"></i>
     </a>
-    <a href="#perfil">
+    <a href="perfil.html">
       <i class="feather" data-feather="user"></i>
     </a>
   </nav>

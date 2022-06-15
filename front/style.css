@@ -12,13 +12,13 @@ html, body {
 
 /* GUIA DE ESTILO */
 :root{
-  --corPrincipal:#464646;
-  --corFundo:#F6F6F6;
-  --corFonteEscura: #000;
+  --corPrincipal:#2565DC;
+  --corFundo:#F5F9FD;
+  --corFonteEscura: #0A0F1A;
   --corFonteClara: #FAFAFA;
-  --corVerde:#757575;
-  --corVermelho:#757575;
-  --corDetalhes: #DDDDDD;
+  --corVerde:#12D68F;
+  --corVermelho:#E11B3F;
+  --corDetalhes: #6593E6;
   --corSalas: #FAFAFA;
 
   --fonteTitulosTm: 24px;
@@ -61,7 +61,7 @@ html, body {
 }
 
 /* BOTAO */  
-.btn{
+.botao{
   width: 41.062801932%;
   max-width: 246px;
   height: 48px;
@@ -72,7 +72,12 @@ html, body {
   margin-top: 16.1835748793%;
   margin-bottom: 50.24154543%;
 }
-
+.botao:hover{
+  background: var(--corPrincipal);
+}
+.botao:active{
+  background: var(--corDetalhes);
+}
 /* BOTTOM NAVBAR */
 i{
   width: 32px;
@@ -145,8 +150,13 @@ input#btnLogar{
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
-  color: (--corVerde);
+  font-size: 16px;
+}
+h2.ocupado{
+  color: var(--corVermelho);
+}
+h2.disponivel{
+  color: var(--corVerde);
 }
 #informacoesSalas{
   text-align: left;
@@ -203,6 +213,9 @@ input#btnLogar{
   -moz-appearance: none;
   background: url(./img/select.png) no-repeat center right;
 }
+select option{
+  font-size: 10px;;
+}
 #btnFiltro{
   float: right;
   font-family: 'Roboto';
@@ -213,6 +226,7 @@ input#btnLogar{
   top: 0.5em;
   right: 0.6em;
 }
+
 /* SALAS */
 #salas{
   max-width: 600px;
@@ -274,8 +288,13 @@ mark{
   padding: 5px 10px 5px 10px;
   margin-left: 15px;
   width: 48.6%;
-  background: var(--corVermelho);
   color: #FAFAFA;
+}
+mark.ocupado{
+  background: var(--corVermelho)
+}
+mark.disponivel{
+  background: var(--corVerde)
 }
 
 
@@ -376,4 +395,7 @@ mark{
     margin-left: 24px;
     margin-bottom: 20px;
   }
+  select option{
+  font-size: 15px;
+}
 }
