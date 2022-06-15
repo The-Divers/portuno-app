@@ -31,3 +31,32 @@
 |  RF G014 |  Permitir edição de dados de perfil | Desenvolvimento | 
 |  RF G015 |  Validar edição de dados | não iniciado | 
 |  RF G016 |  Efetivar atualização do perfil | Desenvolvimento | 
+
+| Requisito  |  Definição  |  Código   |
+| ------------------- | ------------------- |--------------------------------|
+|  RF UC001 | Visualizar tela de pedido de reserva | não iniciado |
+|  RF UC002 | Validar pedido de reserva | não iniciado |
+|  RF UC003 | Cronometrar tempo da reserva | não iniciado |
+|  RF UC004 | Alertar término da reserva | não iniciado |
+|  RF UC005 | Visualizar tela de transferência de chave | não iniciado |
+|  RF UC006 | Validar transferência de chave | não iniciado |
+|  RF UC007 | Fazer transferência de chave para outro usuário | não iniciado |
+|  RF UC008 | Receber transferência de chave de outro usuário | não iniciado |
+|  RF UC009 | Encerrar ocupação | não iniciado |
+|  RF UC010 | Visualizar tela de feedback | não iniciado |
+|  RF UC011 | Submeter feedback | não iniciado |
+
+| Requisito  |  Definição  |  Código   |
+| ------------------- | ------------------- |--------------------------------|
+|  RF UA001 | Editar informações de salas  | não iniciado |
+|  RF UA002 | Editar horários de aula e reservas futuras | não iniciado |
+|  RF UA003 | Visualizar tela de permissões | não iniciado |
+|  RF UA004 | Editar permissões de usuários alunos | não iniciado |
+|  RF UA005 | Visualizar tela de pedidos de reservas | Desenvolvimento |
+|  RF UA006 | Receber pedidos de reserva | não iniciado |
+|  RF UA007 | Responder pedidos de reserva | não iniciado |
+|  RF UA008 | Receber transferência de chave de outro usuário | não iniciado |
+|  RF UA009 | Visualizar tela de feedback | não iniciado |
+|  RF UA010 | Visualizar tela de histórico de reservas | não iniciado |
+|  RF UA011 | Pesquisar no  histórico de reservas | não iniciado |
+
