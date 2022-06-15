@@ -1,6 +1,6 @@
 # Portuno
 
-### Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como objetivo otimizar a ocupação de salas no bloco do SMD. Ele foi criado durante a disciplina de Projeto 1 e utilizando os conhecimentos de Autoração Multimídia, IHC e Design de Interfaces Gráficas
+Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como objetivo otimizar a ocupação de salas no bloco do SMD. Ele foi criado durante a disciplina de Projeto 1 e utilizando os conhecimentos de Autoração Multimídia, IHC e Design de Interfaces Gráficas
 
 ### Equipe The Divers
 | Nome  |  Matrícula  | 
