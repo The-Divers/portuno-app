@@ -16,11 +16,13 @@
   
   <!-- Formulário de login -->
   <form id="loginForm" class="form">
-    <input class="input" id="idAcademico" type="text" placeholder="Matrícula/Siape" required>
-    <input class="input" id="senha" type="password" placeholder="Senha">
+    <input class="input" id="idAcademico" type="text" placeholder="Matrícula/Siape" pattern="[0-9]{6}" required>
+    <input class="input" id="senha" type="password" placeholder="Senha" required>
     <p id="aviso"></p>
     <input type="button" class="botao" id="btnLogar" value="Acessar">
   </form>
-  
+
+  <!-- Scripts Mock -->
+  <script src="MockUsers.js"></script>
 </body>
 </html>

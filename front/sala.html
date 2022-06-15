@@ -83,35 +83,18 @@
   </script>
   
     <!-- BOTTOM NAVABAR -->
-    <nav class="navbar">
-      <a href="#voltar">
-        <i class="feather" data-feather="arrow-left"></i>  
-      </a>
-      <script>
-        if(room.position == 0){
-          document.writeln(`
-            <a href='home.html">
-              <i class="feather" data-feather="home"></i>
-            </a>
-          `);
-        }else if(room.position == 1){
-          document.writeln(`
-            <a href='andar1.html'>
-              <i class='feather' data-feather='home'></i>
-            </a>
-          `);
-        }else{
-          document.writeln(`
-            <a href='andar2.html'>
-              <i class='feather' data-feather='home'></i>
-            </a>
-          `);
-        }
-      </script>
-      <a href="perfil.html">
-        <i class="feather" data-feather="user"></i>
-      </a>
-    </nav>
+    <!-- Footer -->
+  <nav class="navbar">
+    <a href="#voltar">
+      <i class="feather" data-feather="arrow-left"></i>  
+    </a>
+    <a href="home.html">
+      <i class="feather" data-feather="home"></i>
+    </a>
+    <a href="perfil.html">
+      <i class="feather" data-feather="user"></i>
+    </a>
+  </nav>
   <!-- Feather icons js start -->
     <script>
         feather.replace()
