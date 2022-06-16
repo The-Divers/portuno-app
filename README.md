@@ -2,6 +2,14 @@
 
 Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como objetivo otimizar a ocupação de salas no bloco do SMD. Ele foi criado durante a disciplina de Projeto 1 e utilizando os conhecimentos de Autoração Multimídia, IHC e Design de Interfaces Gráficas
 
+### Procedimentos de uso Front-end
+  1 | `Front-end fica na pasta front, lembre-se de executálo em formato mobile`
+  
+  2 | `As informações de matrículas/siape e senha dos usuários válidos estão na página MockUsers`
+  
+### Procedimentos de uso Back-end
+
+
 ### Equipe The Divers
 | Nome  |  Matrícula  | 
 | ------------------- | ------------------- |
