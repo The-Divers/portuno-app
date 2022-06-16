@@ -8,8 +8,35 @@ Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como o
   2 | `As informações de matrículas/siape e senha dos usuários válidos estão na página MockUsers`
   
 ### Procedimentos de uso Back-end
+ 1 | Ao baixar não esqueça de executar o `npm install`
+  
+ 2 | Dentro da pasta back crie um arquivo `.env` e adicione as seguintes informações:
+  
+  ```
+        # VARIÁVEIS DE AMBIENTE #
 
+      #express server config
 
+      PORT=8080
+      HOST=localhost
+      HOST_URL=http://localhost:8080
+
+      #firebase database config
+
+      API_KEY=AIzaSyAN6gbhw3P7JzXJwzgXkFQnmYkbvHM8MZM
+      AUTH_DOMAIN=sistemadeocupacaodesala.firebaseapp.com
+      DATABASE_URL=https://sistemadeocupacaodesala-default-rtdb.firebaseio.com
+      PROJECT_ID=sistemadeocupacaodesala
+      STORAGE_BUCKET=sistemadeocupacaodesala.appspot.com
+      MESSAGING_SENDER_ID=917705094691
+      APP_ID=1:917705094691:web:43f4c4bd16f7e55b68a396
+      MEASUREMENT_ID=G-ZPP41ER5S7
+  
+  ```
+ 3 | Use ` npm start` para iniciar
+ 
+ 4 | Experimente utilizar os métodos CRUD de usuários : ` GET, POST, PUT, UPDATE, DELETE`
+ 
 ### Equipe The Divers
 | Nome  |  Matrícula  | 
 | ------------------- | ------------------- |
