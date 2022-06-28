@@ -1,0 +1,30 @@
+<%- contentFor('contentPage') %>
+
+    <div id="container-login" class="container component">
+
+
+        <!-- Logo -->
+        <img id="logo-login" src="img/logo.png" class="rounded mx-auto d-block"
+            alt="Portuno - sistema de ocupação de salas">
+
+
+        <!-- Fomrulário de login -->
+        <form id="form-login" action="home">
+            <div class="mb-3">
+                <label for="idAcademico" class="form-label">Matrícula/Siape</label>
+                <input type="text" class="form-control" id="idAcademico" required>
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" required>
+            </div>
+            <div id="aviso-login" class="alert alert-danger" role="alert" style="display:none;">
+                Entre com matrícula/siape e senha correta!
+            </div>
+            <div id="btn-login-container" class="d-grid gap-2 col-6 mx-auto">
+                <button id="btn-login" class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </form>
+
+
+    </div>

@@ -1,0 +1,19 @@
+{
+  "name": "app-portuno",
+  "version": "1.0.0",
+  "description": "Project PORTUNO",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-Divers/portuno-app.git"
+  },
+  "author": "The Divers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/The-Divers/portuno-app/issues"
+  },
+  "homepage": "https://github.com/The-Divers/portuno-app#readme"
+}
