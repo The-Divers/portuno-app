@@ -58,7 +58,7 @@ Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como o
 |  RF G006 |  Navegar por diferentes andares | [Front-end](https://github.com/The-Divers/portuno-app/blob/ae8a9b9ae0b8b69e3edd08a6e3221722dfa544a6/front/home.html#L20-L25) |
 |  RF G007 |  Visualizar informações específicas de uma sala | [Front-end](https://github.com/The-Divers/portuno-app/blob/ae8a9b9ae0b8b69e3edd08a6e3221722dfa544a6/front/sala.html#L42-L83) | 
 |  RF G008 |  Visualizar horários de aulas e reservas futuras | Não iniciado | 
-|  RF G009 |  Visualizar tela de filtros | não iniciado | 
+|  RF G009 |  Visualizar tela de filtros | [Front](https://github.com/The-Divers/portuno-app/blob/730397095c00394ab7f614f54c960670fd795b7d/front/views/partials/offcanvas-filtros.ejs#L1-L46) | 
 |  RF G010 |  Selecionar filtros | não iniciado | 
 |  RF G011 |  Aplicar filtro | não iniciado | 
 |  RF G012 |  Receber notificações | não iniciado | 
