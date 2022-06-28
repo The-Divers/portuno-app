@@ -1,0 +1,29 @@
+<%- contentFor('contentPage') %>
+
+    <div id="container-reservas" class="component container">
+
+
+        <h4 class="titulo">Reservas</h4>
+
+        <div class="campo-reserva mt-5">
+            <h4 class="titulo-reserva mb-2">Reservas atuais:</h4>
+            <div class="alert alert-primary d-flex align-items-center" role="alert">
+                <i class="feather" data-feather="info" width="24" height="24"></i>
+                <div class="px-1">
+                    Você não possui reservas atuais!
+                </div>
+            </div>
+        </div>
+        
+        <div class="campo-reserva mt-5">
+            <h4 class="titulo-reserva mb-2">Reservas futuras:</h4>
+            <div class="alert alert-primary d-flex align-items-center" role="alert">
+                <i class="feather" data-feather="info" width="24" height="24"></i>
+                <div class="px-1">
+                    Você não possui reservas futuras!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partials/navbar') %>

@@ -1,0 +1,271 @@
+/* Importações */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+/* GUIA DE ESTILO */
+:root {
+    --corPrincipal: #2565DC;
+    --corFundo: #F8FBFF;
+    --corFonteEscura: #0A0F1A;
+    --corFonteClara: #FAFAFA;
+    --corVerde: #12D68F;
+    --corVermelho: #E11B3F;
+    --corDetalhes: #6593E6;
+    --corSalas: #F8FBFF;
+}
+
+/* Formatações gerais */
+body {
+    padding: 0;
+    margin: 0;
+    background: var(--corFundo);
+}
+
+.container {
+    padding-left: 7.72946859903%;
+    padding-right: 7.72946859903%;
+}
+
+#btn-geral{
+    margin-top: 30.4347826087%;
+}
+/* TELA DE LOGIN */
+#logo-login {
+    margin-top: 54.1062801932%;
+    margin-bottom: 20.2898550725%;
+}
+
+#btn-login-container {
+    margin-top: 28.0193236715%;
+}
+
+/* TELA DE HOME */
+/* Topo */
+.container-salas {
+    float: left;
+}
+
+#andar-atual {
+    float: left;
+}
+
+#andar-atual select {
+    font-family: 'Montserrat';
+    font-size: 24px;
+    font-weight: bold;
+    border: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url(img/select.png) no-repeat center right;
+}
+
+#filtros {
+    float: right;
+}
+
+#filtros button {
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* Salas */
+.sala {
+    float: left;
+    width: 164px;
+    background: var(--corSala);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    padding-bottom: 2.4154589372%;
+    margin-bottom: 3.86473429952%;
+}
+
+.sala-fantasma {
+    background: var(--corFundo);
+    box-shadow: none;
+    border-radius: 6px;
+    padding-bottom: 2.4154589372%;
+    margin-bottom: 3.86473429952%;
+}
+
+.esquerda {
+    margin-right: 20px;
+}
+
+#btn-plus {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    color: var(--corPrincipal);
+}
+
+.tag-status {
+    border-radius: 20px;
+    color: var(--corFonteClara);
+}
+
+.ocupado {
+    background: var(--corVermelho);
+}
+
+.disponivel {
+    background: var(--corVerde);
+}
+
+/* Navbar */
+.navbar {
+    padding-left: 9.66183574879%;
+    padding-right: 9.66183574879%;
+    background-color: var(--corPrincipal);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar a {
+    color: var(--corFonteClara);
+    text-decoration: none;
+    text-align: center;
+}
+
+/* SALA */
+.modal-header {
+    display: block;
+    text-align: center;
+}
+
+.modal-header h5 {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.status-sala {
+    font-family: 'Roboto';
+    font-size: 16px;
+    color: var(--corVerde)
+}
+
+.modal-body {
+    padding: 1rem 5rem 1rem 5rem;
+}
+
+.informacoes-de-sala {
+    text-align: left;
+    color: var(--corFonteEscura);
+}
+
+.topico {
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.conteudo {
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.modal-footer {
+    display: block;
+    text-align: center;
+}
+
+/* TITULOS */
+.titulo {
+    font-family: 'Montserrat';
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 18.5990338164%;
+}
+#form-perfil{
+    margin-top: 25%;
+}
+/* BOTÕES */
+#btn-editar {
+    margin: auto;
+    color: var(--corPrincipal);
+}
+
+/* AJUSTES DE RESPONSIVIDADE */
+@media (min-width: 600px) and (orientation: landscape) {
+
+    #logo-login,
+    .titulo {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    #btn-login-container {
+        margin-top: 100px;
+    }
+
+    #btn-geral {
+        width: 300px;
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+
+    .sala {
+        margin: 0;
+        margin-right: 20px;
+        margin-bottom: 15px;
+    }
+    .titulo {
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+    #form-perfil{
+        margin-top: 0;
+    }
+    #btn-geral{
+        margin-top: 20px;
+    }
+}
+
+@media(max-width:400px) {
+    .container-salas {
+        margin-left: 10px;
+    }
+
+    .sala {
+        text-align: center;
+        width: 140px;
+        height: 120px;
+        margin: 0;
+        margin-right: 12px;
+        margin-bottom: 15px;
+    }
+
+    #filtros button {
+        margin: 0;
+        padding: 0;
+        width: 150px;
+        margin-left: -50px;
+    }
+
+    .tag-status {
+        margin: 0;
+    }
+
+    #btn-plus {
+        margin-top: 8px;
+    }
+    .titulo {
+        margin-bottom: 20px;
+    }
+    #form-perfil{
+        margin-top: 0;
+    }
+    #btn-geral{
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .container-salas {
+        margin-left: 0;
+    }
+}
