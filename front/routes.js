@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 //Importe cada uma das funcoes presentes no arquivo de modulo users.js
-// const {insertUsers,insertUser,delUser,listUsers,findUser} = require("./model/users");
+const {insertUsers,insertUser,delUser,listUsers,findUser} = require("./model/users");
 
 router.use(express.static('public'));
 
@@ -26,9 +26,8 @@ router.get('/perfil', (req, res) => {
     res.render("pages/perfil");
 });
 
-/*router.get('/listUsers',(req,res)=>{
+router.get('/listUsers',(req,res)=>{
     res.render('./crud/listUsers',{listUsers: listUsers()});
-
 });
 
 router.get('/delUser',(req,res)=>{
@@ -37,6 +36,6 @@ router.get('/delUser',(req,res)=>{
     let list = delUser(target);
 
     res.render('./crud/delUser',{listUsers: list});
-});*/
+});
 
 module.exports = router;

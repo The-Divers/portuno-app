@@ -12,7 +12,7 @@
         <form id="form-login" action="home">
             <div class="mb-3">
                 <label for="idAcademico" class="form-label">Matrícula/Siape</label>
-                <input type="text" class="form-control" id="idAcademico" required>
+                <input type="text" class="form-control" id="idAcademico" required pattern="[0-9]{6,7}" title=" Matrícula ou 7 dígitos numéricos para matrícula ou siape, respectivamente">
             </div>
             <div class="mb-3">
                 <label for="senha" class="form-label">Senha</label>
