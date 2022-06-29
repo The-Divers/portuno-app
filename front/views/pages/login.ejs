@@ -9,7 +9,7 @@
 
 
         <!-- Fomrulário de login -->
-        <form id="form-login" action="home">
+        <form id="form-login" action="home" method="get">
             <div class="mb-3">
                 <label for="idAcademico" class="form-label">Matrícula/Siape</label>
                 <input type="text" class="form-control" id="idAcademico" required pattern="[0-9]{6,7}" title=" Matrícula ou 7 dígitos numéricos para matrícula ou siape, respectivamente">
@@ -22,7 +22,7 @@
                 Entre com matrícula/siape e senha correta!
             </div>
             <div id="btn-login-container" class="d-grid gap-2 col-6 mx-auto">
-                <button id="btn-login" class="btn btn-primary" type="submit">Login</button>
+                <input id="btn-login" class="btn btn-primary" value="Logar" type="submit">
             </div>
         </form>
 

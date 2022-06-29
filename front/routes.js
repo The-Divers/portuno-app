@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const { rooms, getRoomsByPosition } = require('./model/rooms')
 
-//Importe cada uma das funcoes presentes no arquivo de modulo users.js
-const {insertUsers,insertUser,delUser,listUsers,findUser} = require("./model/users");
-
+// let authentication = null
 router.use(express.static('public'));
 
 router.get('/', (req, res) => {
@@ -11,7 +10,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/home', (req, res) => {
-    res.render("pages/home");
+    res.render("pages/home", { rooms, getRoomsByPosition });
+});
+
+router.get('/andar1', (req, res) => {
+    res.render("pages/andar1", { rooms, getRoomsByPosition });
+});
+
+router.get('/andar2', (req, res) => {
+    res.render("pages/andar2", { rooms, getRoomsByPosition });
 });
 
 router.get('/horarios', (req, res) => {
@@ -26,16 +33,16 @@ router.get('/perfil', (req, res) => {
     res.render("pages/perfil");
 });
 
-router.get('/listUsers',(req,res)=>{
-    res.render('./crud/listUsers',{listUsers: listUsers()});
-});
-
-router.get('/delUser',(req,res)=>{
-
-    let target = req.query.nome;
-    let list = delUser(target);
-
-    res.render('./crud/delUser',{listUsers: list});
-});
+/*router.post('/logar', (req, res) => {
+    let post = {
+        academicId: req.body.academicId,
+        password: req.body.password
+    }
+    if (authUser(post.academicId, post.password)) {
+        authentication = { valid: true }
+    } else {
+        authentication = { valid: false }
+    }
+})*/
 
 module.exports = router;
