@@ -1,0 +1,27 @@
+{
+  "name": "admin-portuno",
+  "version": "0.1.0",
+  "description": "Portuno admin front-end server",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/The-Divers/portuno-app.git"
+  },
+  "keywords": [
+    "web"
+  ],
+  "author": "The Divers",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1"
+  }
+}
