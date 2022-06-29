@@ -1,0 +1,27 @@
+/* Importações */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+/* GUIA DE ESTILO */
+:root {
+    --corPrincipal: #2565DC;
+    --corFundo: #F8FBFF;
+    --corFonteEscura: #0A0F1A;
+    --corFonteClara: #FAFAFA;
+    --corVerde: #12D68F;
+    --corVermelho: #E11B3F;
+    --corDetalhes: #6593E6;
+    --corSalas: #F8FBFF;
+}
+
+/* Formatações gerais */
+body {
+    padding: 0;
+    margin: 0;
+    background: var(--corFundo);
+}
+
+.container {
+    padding-left: 7.72946859903%;
+    padding-right: 7.72946859903%;
+}
