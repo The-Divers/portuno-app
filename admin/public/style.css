@@ -25,3 +25,63 @@ body {
     padding-left: 7.72946859903%;
     padding-right: 7.72946859903%;
 }
+
+/* TELA DE HOME */
+/* Topo */
+.container-salas {
+    float: left;
+}
+
+#andar-atual {
+    float: left;
+}
+
+#andar-atual select {
+    font-family: 'Montserrat';
+    font-size: 24px;
+    font-weight: bold;
+    border: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url(img/select.png) no-repeat center right;
+}
+
+#filtros {
+    float: right;
+}
+
+#filtros button {
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* Salas */
+.sala {
+    float: left;
+    width: 164px;
+    background: var(--corSalas);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+}
+
+#btn-plus {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    color: var(--corPrincipal);
+}
+
+.tag-status {
+    border-radius: 20px;
+    color: var(--corFonteClara);
+}
+
+.ocupado {
+    background: var(--corVermelho);
+}
+
+.disponivel {
+    background: var(--corVerde);
+}
