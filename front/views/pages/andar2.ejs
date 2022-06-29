@@ -5,12 +5,12 @@
   <!-- Topo -->
   <div class="mt-5 mb-5 container-topo">
     <!-- Andar atual -->
-    <% let pos = 0 %>
+    <% let pos = 2 %>
     <span id="andar-atual" class="dropdown d-grid gap-2 col-5 col-md-3 col-lg-2" style="width: 155px;" onchange="getRoomsByPosition(this.value)">
       <select class="form-select" aria-label="Default select example" onchange="trocaSala(this.value)" >
-        <option value="0" selected>Térreo</option>
+        <option value="2" selected>2º andar</option>
+        <option value="0">Térreo</option>
         <option value="1">1º andar</option>
-        <option value="2">2º andar</option>
       </select>
     </span>
     <!-- Botão dos Filtros -->
@@ -28,7 +28,7 @@
     <div class="mt-md-1">
       <% rooms.forEach(function(room){ %>
       <% if(room.position == pos) { %>
-      <div class="sala <%= ((room.id%2) == 0)?"direita":"esquerda" %> py-3 px-3">
+      <div class="sala <%= ((room.id%2) == 0)?"esquerda":"direita" %> py-3 px-3">
         <h4><%= room.name %></h4>
         <span class="tag-status <%= (room.status == "disponível")?"disponivel px-1":"ocupado px-2" %>" style="margin-right:10px;"><%= room.status %></span>
         <button id="btn-plus" type="button" class="btn" color="$white" data-bs-toggle="modal" data-bs-target="#exampleModal<%= room.id %>">
@@ -37,12 +37,6 @@
       </div>
       <% } %>
       <% }); %>
-
-      <!-- Sala fantasma -->
-      <div class="sala sala-fantasma py-3 px-3">
-      </div>
-    </div>
-  </div>
 
   <!-- Modal Sala-->
   <% rooms.forEach(function(room){ %>
