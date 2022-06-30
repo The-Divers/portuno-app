@@ -26,15 +26,17 @@
   <!-- Salas -->
   <div class="container-salas mt-3 mt-md-5">
     <div class="mt-md-1">
+      <% let cont = 0 %>
       <% rooms.forEach(function(room){ %>
       <% if(room.position == pos) { %>
-      <div class="sala <%= ((room.id%2) == 0)?"direita":"esquerda" %> py-3 px-3">
+      <div class="sala <%= ((cont%2) == 0)?"direita":"esquerda" %> py-3 px-3">
         <h4><%= room.name %></h4>
-        <span class="tag-status <%= (room.status == "disponível")?"disponivel px-1":"ocupado px-2" %>" style="margin-right:10px;"><%= room.status %></span>
+        <!-- <span class="tag-status disponivel " style="margin-right:10px;"><%= (room.status!=undefined)?room.status:"disponível" %></span> -->
         <button id="btn-plus" type="button" class="btn" color="$white" data-bs-toggle="modal" data-bs-target="#exampleModal<%= room.id %>">
           <i style="width: 20px; height: 20px; margin-left:-8px; margin-top:-9px;" data-feather="plus"></i>
         </button>
       </div>
+      <% cont++ %>
       <% } %>
       <% }); %>
 
