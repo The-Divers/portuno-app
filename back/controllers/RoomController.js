@@ -23,7 +23,21 @@ const createRoom = async (req, res) => {
         res.status(400).send(error.message);
     }
 }
-
+const createRooms = async (req, res) => {
+    try {
+        // Captura dos dados através do corpo da requisição
+        const data = req.body;
+        // Operação de cadastro
+        await data.forEach(el => {
+            firestore.collection('rooms').doc().set(el);
+            // Feedback positivo
+            res.send('Reservation recorded :)')
+        })
+    } catch (error) {
+        // Feedback negativo
+        res.status(400).send(error.message);
+    }
+}
 // Receber todos os usuários
 const readRooms = async (req, res) => {
     try {
@@ -122,6 +136,7 @@ const deleteRoom = async (req, res) => {
 //Exporta os métodos
 module.exports = {
     createRoom,
+    createRooms,
     readRooms,
     readOneRoom,
     updateRoom,

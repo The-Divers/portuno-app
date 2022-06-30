@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { rooms, getRoomsByPosition } = require('./model/rooms')
+const { rooms, listStatus } = require('./model/rooms')
 
 // let authentication = null
 router.use(express.static('public'));
@@ -10,15 +10,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/home', (req, res) => {
-    res.render("pages/home", { rooms, getRoomsByPosition });
+    res.render("pages/home", { rooms, listStatus });
 });
 
 router.get('/andar1', (req, res) => {
-    res.render("pages/andar1", { rooms, getRoomsByPosition });
+    res.render("pages/andar1", { rooms });
 });
 
 router.get('/andar2', (req, res) => {
-    res.render("pages/andar2", { rooms, getRoomsByPosition });
+    res.render("pages/andar2", { rooms });
 });
 
 router.get('/horarios', (req, res) => {

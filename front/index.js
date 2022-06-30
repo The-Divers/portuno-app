@@ -23,7 +23,8 @@ app.use(expressLayouts);
 app.use('/', routes);
 
 const server = app.listen(port, address, function () {
-   let host = server.address().address;
-   let port = server.address().port;
-   console.log(`Servidor executando no endereço ${host} e na porta ${port}`);
+    let host = server.address().address;
+    let port = server.address().port;
+   
+    console.log(`Servidor executando no endereço ${host} e na porta ${port}`);
 });
