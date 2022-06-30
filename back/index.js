@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const config = require('./config');
 
 //Atribuição de rotas
-const UserRoutes = require('./routes/UserRoutes');
+const router = require('./routes/routes');
 
 //Instanciação de uma aplicação em Express
 const app = express();
@@ -17,9 +17,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //Rota padrão
-app.use('/api', UserRoutes.routes);
+app.use('/api', router.routes);
 
 //Definição de onde a Api será ouvida
-app.listen(config.port,()=>{
+app.listen(config.port, () => {
     console.log(`PORTUNO is listening on url ${config.url}`)
 })
