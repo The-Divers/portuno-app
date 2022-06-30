@@ -21,7 +21,7 @@ const {
 } = process.env;
 
 assert(HOST, 'HOST is required');
-assert(PORT, 'HOST is required');
+assert(PORT, 'PORT is required');
 
 //Exportar variáveis de ambiente
 module.exports = {
