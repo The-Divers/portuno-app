@@ -1,11 +1,10 @@
 <%- contentFor('contentPage') %>
 
 <div id="container-home" class="container component">
-
+<% let pos = 0 %>
   <!-- Topo -->
-  <div class="mt-5 mb-5 container-topo">
+  <div class="container-topo" style="color:var(--corPrincipal);">
     <!-- Andar atual -->
-    <% let pos = 0 %>
     <span id="andar-atual" class="dropdown d-grid gap-2 col-5 col-md-3 col-lg-2" style="width: 155px;" onchange="getRoomsByPosition(this.value)">
       <select class="form-select" aria-label="Default select example" onchange="trocaSala(this.value)" >
         <option value="0" selected>Térreo</option>
@@ -24,70 +23,128 @@
 
 
   <!-- Salas -->
-  <div class="container-salas mt-3 mt-md-5">
+  <div class="container-salas mt-4 mt-md-5">
     <div class="mt-md-1">
       <% let cont = 0 %>
-      <% rooms.forEach(function(room){ %>
-      <% if(room.position == pos) { %>
-      <div class="sala <%= ((cont%2) == 0)?"direita":"esquerda" %> py-3 px-3">
-        <h4><%= room.name %></h4>
-        <!-- <span class="tag-status disponivel " style="margin-right:10px;"><%= (room.status!=undefined)?room.status:"disponível" %></span> -->
-        <button id="btn-plus" type="button" class="btn" color="$white" data-bs-toggle="modal" data-bs-target="#exampleModal<%= room.id %>">
-          <i style="width: 20px; height: 20px; margin-left:-8px; margin-top:-9px;" data-feather="plus"></i>
-        </button>
-      </div>
-      <% cont++ %>
-      <% } %>
-      <% }); %>
+        <% for (let j = 0; j < rooms.length; j++){ %>
+            <% for (let i = 0; i < rooms.length; i++){ %>
+                <% if(rooms[i].position == pos && rooms[i].order == j) { %>
+                    <div class="sala <%= ((cont%2) == 0)?"esquerda":"direita" %> py-3 px-3">
+                        <h4><%= rooms[i].name %></h4>
+                        <span class="tag-status <%= (rooms[i].status == "disponível")?"disponivel px-1":"ocupado px-2" %>" style="margin-right:10px;"><%= rooms[i].status %></span>
+                        <button id="btn-plus" type="button" class="btn" color="$white" data-bs-toggle="modal" data-bs-target="#salaModal<%= rooms[i].order %>">
+                        <i style="width: 20px; height: 20px; margin-left:-8px; margin-top:-9px;" data-feather="plus"></i>
+                        </button>
+                    </div>
+                    <% cont++ %>
+                <% } %>
+            <% } %>
+        <% } %>
 
       <!-- Sala fantasma -->
-      <div class="sala sala-fantasma py-3 px-3">
-      </div>
+      <div class="sala sala-fantasma py-5 px-3">
+     </div>
+     <div class="sala sala-fantasma py-5 px-3">
+    </div>
     </div>
   </div>
 
   <!-- Modal Sala-->
-  <% rooms.forEach(function(room){ %>
-    <% if(room.position == pos) { %>
-    <!-- Modal Sala-->
-    <div class="modal fade" id="exampleModal<%= room.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header" style="text-align: center;">
-            <h3><%= room.name %></h3>
-            <span class="status-sala" style=<%= (room.status == "disponível")?"color:var(--corVerde);":"color:var(--corVermelho);" %>F>
-              <i class="feather" data-feather=<%= (room.status == "disponível")?"check":"x-circle" %> width="18" height="18"></i>
-              <%= room.status %>
-            </span>
-          </div>
-          <div class="modal-body">
-            <div class="informacoes-sala">
-              <h5 class="topico">Tipo de sala:</h5>
-              <h5 class="conteudo"><%= room.roomType %></h5>
-    
-              <h5 class="topico">Quantidade de espaços:</h5>
-              <h5 class="conteudo"><%= room.roomCapacity %></h5>
-    
-              <h5 class="topico">Contém:</h5>
-              <% room.contains.forEach(content => { %>
-              <h5 class="conteudo"><%= content %></h5>
-              <% }); %>
-              <% if(room.status == "ocupado") { %>
-              <h5 class="topico">Ocupado por:</h5>
-              <h5 class="conteudo"><%= room.userOccupying %></h5>
-              <% } %>
-    
+    <% for (let j = 0; j < rooms.length; j++){ %>
+        <% for (let i = 0; i < rooms.length; i++){ %>
+            <% if(rooms[i].position == pos && rooms[i].order == j) { %>
+                <!-- Modal Sala-->
+                <div class="modal" id="salaModal<%= rooms[i].order %>" tabindex="-1" aria-labelledby="salaModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header" style="text-align: center;">
+                        <h3><%= rooms[i].name %></h3>
+                        <span class="status-sala" style=<%= (rooms[i].status == "disponível")?"color:var(--corVerde);":"color:var(--corVermelho);" %>>
+                        <i class="feather" data-feather=<%= (rooms[i].status == "disponível")?"check":"x-circle" %> width="18" height="18"></i>
+                        <%= rooms[i].status %>
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="informacoes-sala">
+                        <h5 class="topico">Tipo de sala:</h5>
+                        <h5 class="conteudo"><%= rooms[i].roomType %></h5>
+                
+                        <h5 class="topico">Quantidade de espaços:</h5>
+                        <h5 class="conteudo"><%= rooms[i].roomCapacity %></h5>
+                
+                        <h5 class="topico">Contém:</h5>
+                        <% rooms[i].contains.forEach(content => { %>
+                            <h5 class="conteudo"><%= content %></h5>
+                        <% }); %>
+                        <% if(rooms[i].status == "ocupado") { %>
+                            <h5 class="topico">Ocupado por:</h5>
+                            <h5 class="conteudo"><%= rooms[i].userOccupying %></h5>
+                        <% } %>
+                </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary <%= (room.status == "ocupado")?"disabled":"" %> ">Solicitar</button>
-          </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary <%= (rooms[i].status == "ocupado")?"disabled":"" %>" data-bs-toggle="modal" data-bs-target="#reservaModal<%= rooms[i].order %>">Solicitar</button>
+            </div>
+            </div>
         </div>
-      </div>
-    </div>
+        </div>
+            <% } %>
+        <% } %>
     <% } %>
-    <% }); %>
+
+
+     <!-- Modal Reservar -->
+     <% for (let j = 0; j < rooms.length; j++){ %>
+        <% for (let i = 0; i < rooms.length; i++){ %>
+            <% if(rooms[i].position == pos && rooms[i].order == j) { %>
+                <!-- Modal Sala-->
+                <div class="modal" id="reservaModal<%= rooms[i].order %>" tabindex="-1" aria-labelledby="reservaModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header" style="text-align: center;">
+                        <h3><%= rooms[i].name %></h3>
+                        <span class="status-sala" style="color: var(--corDetalhes)" %>>
+                        <i class="feather" data-feather="bookmark" width="18" height="18"></i>
+                        solicitando
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="informacoes-sala">
+                        <h5 class="topico">Informe o objetivo da ocupação:</h5>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadio" id="flexRadioEstudar">
+                            <label class="form-check-label" for="flexRadioEstudar">
+                              Estudar
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadio" id="flexRadioTrabalho" checked>
+                            <label class="form-check-label" for="flexRadioTrabalho">
+                              Trabalho
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadio" id="flexRadioReunião" checked>
+                            <label class="form-check-label" for="flexRadioReunião">
+                              Reunião
+                            </label>
+                          </div>
+
+                          <p class="mt-2 conteudo" style="text-align:center;" >Você confirma sua responsabilidade com o ambiente <%= rooms[i].fullName%>?</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Confirmar</button>
+            </div>
+            </div>
+        </div>
+        </div>
+            <% } %>
+        <% } %>
+    <% } %>
 
   <!-- Offcanvas Filtros  -->
   <%- include("../partials/offcanvas-filtros") %>
