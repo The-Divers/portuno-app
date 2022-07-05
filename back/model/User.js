@@ -1,7 +1,6 @@
 'use strict';
 // Denpendências para atuar sobre o banco de dados
 const firebase = require('../db');
-const User = require('../models/User');
 const firestore = firebase.firestore()
 
 /* Regras de negócio */
@@ -29,30 +28,21 @@ const createUser = async (req, res) => {
 const readUsers = async (req, res) => {
     try {
         // Capturo a coleção usuários e capturo(get) os dados
-        const users = await firestore.collection('users');
-        const data = await users.get();
-        // Array para organizar os usuários
-        const usersArray = []
+        const usersBd = await firestore.collection('users').get();
         // Testa se há algum usuário para poder dar o Feedback
-        if (data.empty) {
+        if (usersBd.empty) {
             // Feedback negativo
             res.status(404).send('No user found :(')
         } else {
             // Para cada usuário do BD será instanciado um objeto de User
-            data.forEach(doc => {
-                const user = new User(
-                    doc.id,
-                    doc.data().idAcademico,
-                    doc.data().nome,
-                    doc.data().email,
-                    doc.data().numeroDeTelefone,
-                    doc.data().tipoDeUsuario
-                );
-                // Cada objeto usuário será colocado no Array
-                usersArray.push(user);
-            });
-            // Feedback positivo
-            res.send(usersArray);
+            let users = usersBd.docs.map(doc => {
+                return {
+                    id: doc.id,
+                    data: doc.data()
+                };
+            })
+            res.send(users);
+            // console.log(users);
         }
     } catch (error) {
         // Feedback negativo

@@ -3,9 +3,9 @@
 const express = require('express');
 
 //Métodos de crud
-const { createUser, readUsers, readOneUser, updateUser, deleteUser } = require('../controllers/UserController')
-const { createRoom, createRooms, readRooms, readOneRoom, updateRoom, deleteRoom } = require("../controllers/RoomController")
-const { createReservation, readReservations, readOneReservation, updateReservation, deleteReservation } = require("../controllers/ReservationController");
+const { createUser, readUsers, readOneUser, updateUser, deleteUser } = require('./model/User')
+const { createRoom, readRooms, readOneRoom, updateRoom, deleteRoom } = require("./model/Room")
+const { createReservation, readReservations, readOneReservation, updateReservation, deleteReservation } = require("./model/Reservation");
 
 const router = express.Router();
 
@@ -18,7 +18,6 @@ router.delete('/user/:id', deleteUser);
 
 // Rotas de CRUD de ROOM
 router.post('/room', createRoom);
-router.post('/rooms', createRooms);
 router.get('/rooms', readRooms);
 router.get('/room/:id', readOneRoom);
 router.put('/room/:id', updateRoom);

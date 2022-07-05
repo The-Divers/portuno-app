@@ -1,21 +1,22 @@
 'use strict';
 // Denpendências para atuar sobre o banco de dados
 const firebase = require('../db');
-const Reservation = require('../models/Reservation');
 const firestore = firebase.firestore()
+
+/* Regras de negócio */
 
 /* Métodos CRUD 
 (Create, Read, Update, Delete)*/
 
 // Cadastra um novo usuário
-const createReservation = async (req, res) => {
+const createRoom = async (req, res) => {
     try {
         // Captura dos dados através do corpo da requisição
         const data = req.body;
         // Operação de cadastro
-        await firestore.collection('reservations').doc().set(data);
+        await firestore.collection('rooms').doc().set(data);
         // Feedback positivo
-        res.send('Reservation recorded :)')
+        res.send('Room recorded :)')
     } catch (error) {
         // Feedback negativo
         res.status(400).send(error.message);
@@ -23,57 +24,46 @@ const createReservation = async (req, res) => {
 }
 
 // Receber todos os usuários
-const readReservations = async (req, res) => {
+const readRooms = async (req, res) => {
     try {
         // Capturo a coleção usuários e capturo(get) os dados
-        const reservations = await firestore.collection('reservations');
-        const data = await reservations.get();
-        // Array para organizar os usuários
-        const reservationsArray = []
+        const roomsBd = await firestore.collection('rooms').get();
         // Testa se há algum usuário para poder dar o Feedback
-        if (data.empty) {
+        if (roomsBd.empty) {
             // Feedback negativo
-            res.status(404).send('No reservation found :(')
+            res.status(404).send('No user found :(')
         } else {
-            // Para cada usuário do BD será instanciado um objeto de Room
-            data.forEach(doc => {
-                const reservation = new Reservation(
-                    doc.id,
-                    doc.data().userId,
-                    doc.data().userName,
-                    doc.data().roomId,
-                    doc.data().reservationStatus,
-                    doc.data().checkin,
-                    doc.data().checkout
-                );
-                // Cada objeto usuário será colocado no Array
-                reservationsArray.push(reservation);
-            });
-            // Feedback positivo
-            res.send(reservationsArray);
+            // Para cada usuário do BD será instanciado um objeto de User
+            let rooms = roomsBd.docs.map(doc => {
+                return {
+                    id: doc.id,
+                    data: doc.data()
+                };
+            })
+            res.send(rooms);
+            // console.log(rooms);
         }
     } catch (error) {
         // Feedback negativo
-        res.status(404).send('No reservations found :(');
+        res.status(404).send('No users found :(');
     }
 }
 
 // Receber apenas um usuário
-const readOneReservation = async (req, res) => {
+const readOneRoom = async (req, res) => {
     try {
         // Passando um id pelos parâmetros da requisição
         const id = req.params.id;
         // Capturo da coleção usuário um usuário pelo id
-        const reservation = await firestore.collection('reservations').doc(id);
-        // Capturo os dados desse usuário
-        const data = await reservation.get();
+        const roomBd = await firestore.collection('rooms').doc(id).get();
         // Testa se há dados
-        if (!data.exists) {
+        if (!roomBd.exists) {
             // Feedback negativo
             res.status(404).send(error.message);
         } else {
             // Feedback positivo
-            res.send(data.data());
+            res.send(roomBd.data());
+            // console.log(roomBd.data())
         }
     } catch (error) {
         // Feedback negativo
@@ -82,17 +72,17 @@ const readOneReservation = async (req, res) => {
 }
 
 // Atualizar um usuário
-const updateReservation = async (req, res) => {
+const updateRoom = async (req, res) => {
     try {
         // Passando um id pelos parâmetros da requisição
         const id = req.params.id;
         // Recebo o conteúdo atualizado pelo corpo da requisição
         const data = req.body;
         // Em uma coleção e em um dado usuário ocorre a Operação de atualização
-        const reservation = await firestore.collection('reservations').doc(id)
-        await reservation.update(data)
+        const room = await firestore.collection('rooms').doc(id).update(data);
         // Feedback positivo
-        res.send('Reservation updated :)')
+        res.send('Room updated :)')
+        // console.log(room.data())
     } catch (error) {
         // Feedback negativo
         res.status(404).send(error.message);
@@ -101,14 +91,14 @@ const updateReservation = async (req, res) => {
 }
 
 // Deletar um usuário
-const deleteReservation = async (req, res) => {
+const deleteRoom = async (req, res) => {
     try {
         // Passando um id pelos parâmetros da requisição
         const id = req.params.id;
         // Operação de deletar, em uma coleção, um usuário pelo seu id
-        const reservation = await firestore.collection('reservations').doc(id).delete();
+        const room = await firestore.collection('rooms').doc(id).delete();
         // Feedback positivo
-        res.send('Reservation deleted :)')
+        res.send('Room deleted :)')
     } catch (error) {
         // Feedback negativo
         res.status(404).send(error.message);
@@ -117,9 +107,9 @@ const deleteReservation = async (req, res) => {
 
 //Exporta os métodos
 module.exports = {
-    createReservation,
-    readReservations,
-    readOneReservation,
-    updateReservation,
-    deleteReservation
+    createRoom,
+    readRooms,
+    readOneRoom,
+    updateRoom,
+    deleteRoom
 }

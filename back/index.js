@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const config = require('./config');
 
 //Atribuição de rotas
-const router = require('./routes/routes');
+const router = require('./routes');
 
 //Instanciação de uma aplicação em Express
 const app = express();
