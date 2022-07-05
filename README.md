@@ -69,7 +69,7 @@ Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como o
 
 | Requisito  |  Definição  |  Código   |
 | ------------------- | ------------------- |--------------------------------|
-|  RF UC001 | Visualizar tela de pedido de reserva | Em desenvolvimento |
+|  RF UC001 | Visualizar tela de pedido de reserva | [Front-end](https://github.com/The-Divers/portuno-app/blob/14868c743cdc7b70c90c2a44c5ad986b25807299/front/views/pages/home.ejs#L88-L134) |
 |  RF UC002 | Validar pedido de reserva | Em desenvolvimento |
 |  RF UC003 | Cronometrar tempo da reserva | não iniciado |
 |  RF UC004 | Alertar término da reserva |  Em desenvolvimento |
