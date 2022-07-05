@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const app = express();
+const Auth = require("./firebase.js")
 const routes = require("./routes");
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -13,6 +14,9 @@ const expressLayouts = require('express-ejs-layouts');
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
+
+
+
 
 app.use('/', routes);
 
