@@ -36,12 +36,13 @@
     </nav>
 
         <!-- Pedidos -->
-        <table class="table w-75 mt-5" style="margin:auto;">
+        <table class="table w-75 mt-5" style="margin:auto; text-align: center;">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Matrícula/Siape</th>
+                    <th scope="col">Telefone</th>
                     <th scope="col">Sala</th>
                     <th scope="col">Data</th>
                     <th scope="col">Empréstimo</th>
@@ -61,6 +62,9 @@
                             <%= reservations[i].idAcademico %>
                         </td>
                         <td>
+                            <%= reservations[i].telefone %>
+                        </td>
+                        <td>
                             <%= reservations[i].salaNome %>
                         </td>
                         <td>
@@ -70,7 +74,9 @@
                             <%= reservations[i].checkin %>
                         </td>
                         <td>
-                            <%= (reservations[i].checkout==null)?"Não finalizada":reservations[i].checkout %>
+                            <span class="<%= (reservations[i].checkout==null)?"badge rounded-pill":""%>" style="<%= (reservations[i].checkout==null)?"background: var(--corDetalhes); color:var(--corFonteClara)":""%>">
+                                <%= (reservations[i].checkout==null)?"Não finalizada":reservations[i].checkout %>
+                            </span>
                         </td>
                     </tr>
                     <% } %>

@@ -135,6 +135,10 @@ body {
     text-align: center;
 }
 
+a.atual{
+    color: #72a1f8;
+    cursor: text;
+}
 /* SALA */
 h3 {
     font-family: 'Roboto', sans-serif;

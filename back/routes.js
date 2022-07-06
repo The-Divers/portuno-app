@@ -7,7 +7,7 @@ const { createUser, readUsers, readOneUser, updateUser, deleteUser } = require('
 const { createRoom, readRooms, readOneRoom, updateRoom, deleteRoom } = require("./model/Room")
 const { createReservation, readReservations, readOneReservation, updateReservation, deleteReservation } = require("./model/Reservation");
 
-const router = express.Router();
+const router = express.Router();    
 
 // Rotas de CRUD do USER
 router.post('/user', createUser);

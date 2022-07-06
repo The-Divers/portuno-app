@@ -17,12 +17,13 @@ router.get('/solicitacoes', (req, res) => {
     res.render("pages/solicitacoes");
 });
 
-router.get('/historico', async (req, res) => {
+router.get('/historico', (req, res) => {
     const reservations = [
         {
             nome: "Deivid Mota Freitas",
             idAcademico: "511113",
             salaNome: "Lab 04",
+            telefone: "(85)99236733",
             date: "05/07",
             checkin: "14:00",
             checkout: null
@@ -31,6 +32,7 @@ router.get('/historico', async (req, res) => {
             nome: "João Victor Barroso Alves",
             idAcademico: "509697",
             salaNome: "Lab 03",
+            telefone: "(85)91235677",
             date: "05/07",
             checkin: "13:00",
             checkout: "14:00"
@@ -44,21 +46,25 @@ router.get('/pedidos', (req, res) => {
         {
             nome: "Deivid Mota Freitas",
             idAcademico: "511113",
+            tipo: "aluno",
             salaNome: "Lab 04"
         },
         {
             nome: "João Victor Barroso Alves",
             idAcademico: "509697",
+            tipo: "aluno",
             salaNome: "Lab 03"
         },
         {
             nome: "George Allan Menezes",
-            idAcademico: "7777777",
+            idAcademico: "7162735",
+            tipo: "professor",
             salaNome: "Lab 01"
         },
         {
             nome: "Lazaro Natanael da Silva",
             idAcademico: "555555",
+            tipo: "aluno",
             salaNome: "C.A"
         }
     ]

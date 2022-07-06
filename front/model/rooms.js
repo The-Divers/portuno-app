@@ -6,6 +6,12 @@ async function getRooms() {
     return response.data;
 }
 
+async function getOneRoom(id){
+    const response = await axios.get(`http://localhost:8080/api/room/${id}`);
+    return response.data;
+}
+
 module.exports = {
-    getRooms: getRooms
+    getRooms: getRooms,
+    getOneRoom: getOneRoom
 }

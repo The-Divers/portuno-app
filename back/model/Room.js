@@ -105,6 +105,8 @@ const deleteRoom = async (req, res) => {
     }
 }
 
+
+
 //Exporta os métodos
 module.exports = {
     createRoom,

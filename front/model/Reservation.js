@@ -1,5 +1,0 @@
-let reservation = {}
-
-function createReservation(){
-
-}

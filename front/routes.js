@@ -1,11 +1,12 @@
 const express = require("express");
+const axios = require("axios")
 const rooms = require("./model/rooms");
 const router = express.Router();
-const { getRooms } = require('./model/rooms')
+const { getRooms, getOneRoom } = require('./model/rooms')
 
-// let authentication = null
 router.use(express.static('public'));
 
+// ROTAS DE PÁGINAS
 router.get('/', (req, res) => {
     res.render("pages/login");
 });
@@ -19,9 +20,8 @@ router.get('/home', async (req, res) => {
             rooms.splice(i, 1);
         }
     }
-    rooms = rooms.sort((a,b) => a.data.order - b.data.order)
-    console.log(rooms);
-    res.render("pages/home", { rooms: rooms });
+    rooms = rooms.sort((a, b) => a.data.order - b.data.order)
+    res.render("pages/home", { rooms: rooms,  filter: false });
 
 });
 
@@ -34,9 +34,9 @@ router.get('/andar1', async (req, res) => {
             rooms.splice(i, 1);
         }
     }
-    rooms = rooms.sort((a,b) => a.data.order - b.data.order)
+    rooms = rooms.sort((a, b) => a.data.order - b.data.order)
     console.log(rooms);
-    res.render("pages/andar1", { rooms: rooms });
+    res.render("pages/andar1", { rooms: rooms,  filter: false });
 });
 
 router.get('/andar2', async (req, res) => {
@@ -48,9 +48,9 @@ router.get('/andar2', async (req, res) => {
             rooms.splice(i, 1);
         }
     }
-    rooms = rooms.sort((a,b) => a.data.order - b.data.order)
+    rooms = rooms.sort((a, b) => a.data.order - b.data.order)
     console.log(rooms);
-    res.render("pages/andar2", { rooms: rooms });
+    res.render("pages/andar2", { rooms: rooms, filter: false });
 });
 
 router.get('/horarios', (req, res) => {
@@ -65,16 +65,156 @@ router.get('/perfil', (req, res) => {
     res.render("pages/perfil");
 });
 
-/*router.post('/logar', (req, res) => {
-    let post = {
-        academicId: req.body.academicId,
-        password: req.body.password
+
+//ROTAS DE FILTROS
+router.post('/home', async (req, res) => {
+    let data = req.body
+    console.log(data)
+
+    let rooms = await getRooms();
+    let filterRooms = [];
+    //Remove salas de outros andares
+    for (var i = rooms.length - 1; i >= 0; i--) {
+        if (rooms[i].data.position != 0) {
+            rooms.splice(i, 1);
+        }
     }
-    if (authUser(post.academicId, post.password)) {
-        authentication = { valid: true }
+    //Adiciona a Salas Filtradas as salas com os  de tipo
+    if (data.filter1 != undefined) {
+        for (var i = rooms.length - 1; i >= 0; i--) {
+            if (rooms[i].data.roomType == data.filter1) {
+                filterRooms.push(rooms[i]);
+            }
+        }
+        if (data.filter2 != undefined) {
+            for (var i = filterRooms.length - 1; i >= 0; i--) {
+                if (filterRooms[i].data.status == data.filter2) {
+                } else {
+                    filterRooms.splice(i, 1);
+                }
+            }
+        }
     } else {
-        authentication = { valid: false }
+        if (data.filter2 != undefined) {
+            for (var i = rooms.length - 1; i >= 0; i--) {
+                if (rooms[i].data.status != data.filter2) {
+                } else {
+                    rooms.splice(i, 1); F
+                }
+            }
+        }
+        filterRooms = rooms;
     }
-})*/
+
+    filterRooms = filterRooms.sort((a, b) => a.data.order - b.data.order)
+    res.render("pages/home", { rooms: filterRooms, filter: true });
+
+});
+
+router.post('/andar1', async (req, res) => {
+    let data = req.body
+    console.log(data)
+
+    let rooms = await getRooms();
+    let filterRooms = [];
+    //Remove salas de outros andares
+    for (var i = rooms.length - 1; i >= 0; i--) {
+        if (rooms[i].data.position != 1) {
+            rooms.splice(i, 1);
+        }
+    }
+    //Adiciona a Salas Filtradas as salas com os  de tipo
+    if (data.filter1 != undefined) {
+        for (var i = rooms.length - 1; i >= 0; i--) {
+            if (rooms[i].data.roomType == data.filter1) {
+                filterRooms.push(rooms[i]);
+            }
+        }
+        if (data.filter2 != undefined) {
+            for (var i = filterRooms.length - 1; i >= 0; i--) {
+                if (filterRooms[i].data.status == data.filter2) {
+                } else {
+                    filterRooms.splice(i, 1);
+                }
+            }
+        }
+    } else {
+        if (data.filter2 != undefined) {
+            for (var i = rooms.length - 1; i >= 0; i--) {
+                if (rooms[i].data.status != data.filter2) {
+                } else {
+                    rooms.splice(i, 1); F
+                }
+            }
+        }
+        filterRooms = rooms;
+    }
+
+    filterRooms = filterRooms.sort((a, b) => a.data.order - b.data.order)
+    res.render("pages/andar1", { rooms: filterRooms, filter: true });
+
+});
+
+router.post('/andar2', async (req, res) => {
+    let data = req.body
+    console.log(data)
+
+    let rooms = await getRooms();
+    let filterRooms = [];
+    //Remove salas de outros andares
+    for (var i = rooms.length - 1; i >= 0; i--) {
+        if (rooms[i].data.position != 2) {
+            rooms.splice(i, 1);
+        }
+    }
+    //Adiciona a Salas Filtradas as salas com os  de tipo
+    if (data.filter1 != undefined) {
+        for (var i = rooms.length - 1; i >= 0; i--) {
+            if (rooms[i].data.roomType == data.filter1) {
+                filterRooms.push(rooms[i]);
+            }
+        }
+        if (data.filter2 != undefined) {
+            for (var i = filterRooms.length - 1; i >= 0; i--) {
+                if (filterRooms[i].data.status == data.filter2) {
+                } else {
+                    filterRooms.splice(i, 1);
+                }
+            }
+        }
+    } else {
+        if (data.filter2 != undefined) {
+            for (var i = rooms.length - 1; i >= 0; i--) {
+                if (rooms[i].data.status != data.filter2) {
+                } else {
+                    rooms.splice(i, 1); F
+                }
+            }
+        }
+        filterRooms = rooms;
+    }
+
+    filterRooms = filterRooms.sort((a, b) => a.data.order - b.data.order)
+    res.render("pages/andar2", { rooms: filterRooms, filter: true });
+
+});
+//ROTAS DE CRUD
+router.get('/sendRerervation/:id', async (req, res) => {
+    let id = req.params.id;
+    let room = await getOneRoom(id)
+
+    let reservation = {
+        idAcademico: "511113",
+        nameUser: "Deivid Mota Freitas",
+        roomId: id,
+        roomName: room.name,
+        tipo: "PENDENTE",
+        checkin: null,
+        checkout: null
+    }
+
+    let response = await axios.post("http://localhost:8080/api/reserve", reservation)
+
+})
 
 module.exports = router;
