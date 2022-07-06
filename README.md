@@ -87,11 +87,11 @@ Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como o
 |  RF UA002 | Editar horários de aula e reservas futuras | não iniciado |
 |  RF UA003 | Visualizar tela de permissões | não iniciado |
 |  RF UA004 | Editar permissões de usuários alunos | não iniciado |
-|  RF UA005 | Visualizar tela de pedidos de reservas |  Em desenvolvimento |
+|  RF UA005 | Visualizar tela de pedidos de reservas |  [Front-end](https://github.com/The-Divers/portuno-app/blob/56de5c7a5561d656ceb6ed3fb730c462bef23947/admin/views/pages/pedidos.ejs#L41-L76) |
 |  RF UA006 | Receber pedidos de reserva |  Em desenvolvimento |
 |  RF UA007 | Responder pedidos de reserva |  Em desenvolvimento |
 |  RF UA008 | Receber transferência de chave de outro usuário | não iniciado |
 |  RF UA009 | Visualizar tela de feedback | não iniciado |
-|  RF UA010 | Visualizar tela de histórico de reservas |  Em desenvolvimento |
+|  RF UA010 | Visualizar tela de histórico de reservas | [Front-end](https://github.com/The-Divers/portuno-app/blob/56de5c7a5561d656ceb6ed3fb730c462bef23947/admin/views/pages/historico.ejs#L38-L78) |
 |  RF UA011 | Pesquisar no  histórico de reservas | não iniciado |
 
