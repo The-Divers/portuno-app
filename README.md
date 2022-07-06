@@ -60,7 +60,7 @@ Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como o
 |  RF G008 |  Visualizar horários de aulas e reservas futuras | Não iniciado | 
 |  RF G009 |  Visualizar tela de filtros | [Front](https://github.com/The-Divers/portuno-app/blob/730397095c00394ab7f614f54c960670fd795b7d/front/views/partials/offcanvas-filtros.ejs#L1-L46) | 
 |  RF G010 |  Selecionar filtros | [Front](https://github.com/The-Divers/portuno-app/blob/d18a0e94245ed3494e8041ad270c8c5061005733/front/views/partials/offcanvas-filtros.ejs#L1-L46) | 
-|  RF G011 |  Aplicar filtro | não iniciado | 
+|  RF G011 |  Aplicar filtro | [Front-end & Back](https://github.com/The-Divers/portuno-app/blob/c774dd6acca3525d9e93214419a34bcdacce2fef/front/routes.js#L69-L200) | 
 |  RF G012 |  Receber notificações | não iniciado | 
 |  RF G013 |  Visualizar tela de perfil | [Front-end](https://github.com/The-Divers/portuno-app/blob/d18a0e94245ed3494e8041ad270c8c5061005733/front/views/pages/perfil.ejs#L3-L37) | 
 |  RF G014 |  Permitir edição de dados de perfil | Desenvolvimento | 
@@ -70,8 +70,8 @@ Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como o
 | Requisito  |  Definição  |  Código   |
 | ------------------- | ------------------- |--------------------------------|
 |  RF UC001 | Visualizar tela de pedido de reserva | [Front-end](https://github.com/The-Divers/portuno-app/blob/14868c743cdc7b70c90c2a44c5ad986b25807299/front/views/pages/home.ejs#L88-L134) |
-|  RF UC002 | Validar pedido de reserva | Em desenvolvimento |
-|  RF UC003 | Cronometrar tempo da reserva | não iniciado |
+|  RF UC002 | Enviar pedido de reserva | [Em desenvolvimento](https://github.com/The-Divers/portuno-app/blob/c774dd6acca3525d9e93214419a34bcdacce2fef/front/routes.js#L202-L218) |
+|  RF UC003 | Visulaizar tela de reserva com ocupação atual | [Em desenvolvimento](https://github.com/The-Divers/portuno-app/blob/c774dd6acca3525d9e93214419a34bcdacce2fef/front/views/pages/reservas.ejs#L6-L27) |
 |  RF UC004 | Alertar término da reserva |  Em desenvolvimento |
 |  RF UC005 | Visualizar tela de transferência de chave |  Em desenvolvimento |
 |  RF UC006 | Validar transferência de chave | não iniciado |
