@@ -94,9 +94,9 @@ router.post('/home', async (req, res) => {
     } else {
         if (data.filter2 != undefined) {
             for (var i = rooms.length - 1; i >= 0; i--) {
-                if (rooms[i].data.status != data.filter2) {
+                if (rooms[i].data.status == data.filter2) {
                 } else {
-                    rooms.splice(i, 1); F
+                    rooms.splice(i, 1);
                 }
             }
         }
@@ -137,9 +137,9 @@ router.post('/andar1', async (req, res) => {
     } else {
         if (data.filter2 != undefined) {
             for (var i = rooms.length - 1; i >= 0; i--) {
-                if (rooms[i].data.status != data.filter2) {
+                if (rooms[i].data.status == data.filter2) {
                 } else {
-                    rooms.splice(i, 1); F
+                    rooms.splice(i, 1);
                 }
             }
         }
@@ -180,9 +180,9 @@ router.post('/andar2', async (req, res) => {
     } else {
         if (data.filter2 != undefined) {
             for (var i = rooms.length - 1; i >= 0; i--) {
-                if (rooms[i].data.status != data.filter2) {
+                if (rooms[i].data.status == data.filter2) {
                 } else {
-                    rooms.splice(i, 1); F
+                    rooms.splice(i, 1);
                 }
             }
         }
@@ -199,8 +199,8 @@ router.get('/sendRerervation/:id', async (req, res) => {
     let room = await getOneRoom(id)
 
     let reservation = {
-        uid: "509697",
-        nameUser: "João Victor Barroso Alves",
+        uid: "5346578",
+        nameUser: "George allan Menezes",
         roomId: id,
         roomName: room.name,
         status: "PENDENTE",

@@ -1,11 +1,11 @@
 const express = require("express");
-const { getReservations } = require("./models/Reservations");
+const { getReservations, getOneReservation, updateReservation } = require("./models/Reservations");
 const router = express.Router();
-const { rooms } = require("./models/Rooms")
+const { rooms, updateRoom } = require("./models/Rooms")
 
 router.use(express.static('public'));
 
-// ROTAS DE
+// ROTAS DE PÁGINAS
 router.get('/', (req, res) => {
     res.render("pages/login");
 });
@@ -26,27 +26,16 @@ router.get('/permissoes', (req, res) => {
     res.render("pages/permissoes");
 });
 
-router.get('/historico', (req, res) => {
-    const reservations = [
-        {
-            nome: "Deivid Mota Freitas",
-            idAcademico: "511113",
-            salaNome: "Lab 04",
-            telefone: "(85)99236733",
-            date: "05/07",
-            checkin: "14:00",
-            checkout: null
-        },
-        {
-            nome: "João Victor Barroso Alves",
-            idAcademico: "509697",
-            salaNome: "Lab 03",
-            telefone: "(85)91235677",
-            date: "05/07",
-            checkin: "13:00",
-            checkout: "14:00"
+router.get('/historico', async (req, res) => {
+    const reservations = await getReservations();
+
+    if (reservations != null) {
+        for (let i = 0; i < reservations.length; i++) {
+            if (reservations[i].data.status == "PENDENTE") {
+                reservations.splice(i, 1);
+            }
         }
-    ]
+    }
     res.render("pages/historico", { reservations: reservations });
 });
 
@@ -64,5 +53,37 @@ router.get('/pedidos', async (req, res) => {
 
 });
 
+// ROTAS DE AÇÕES
+router.get('/alowReservation/:id', async (req, res) => {
+    let id = req.params.id;
+    let reservation = await getOneReservation(id);
+
+    if (reservation != null) {
+        let updateReservationData = {
+            status: 'PERMITIDO',
+            date: new Date().getDate() + "/" + new Date().getMonth(),
+            checkin: new Date().getHours() + ":" + new Date().getMinutes(),
+            checkout: null,
+            roomName: reservation.roomName,
+            roomId: reservation.roomId,
+            uid: reservation.uid,
+            nameUser: reservation.nameUser
+        }
+        //Atualiza reserva
+        await updateReservation(id, updateReservationData);
+
+        let updateRoomData = {
+            status: "ocupado",
+            userOccupying: reservation.nameUser
+        }
+
+        await updateRoom(reservation.roomId, updateRoomData);
+
+
+
+    }
+    // 
+
+});
 
 module.exports = router;

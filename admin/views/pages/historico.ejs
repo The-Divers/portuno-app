@@ -1,8 +1,15 @@
 <%- contentFor( 'contentPage' ) %>
 
     <!-- Navbar -->
-    <%- include('../partials/navbar', {page: "historico"}) %>
+    <%- include('../partials/navbar', {page: "historico" }) %>
 
+    <!-- Tela de histórico -->
+    <% if (reservations==null) { %>
+        <div class="alert alert-primary w-75 mt-3" style="margin: auto;" role="alert">
+            <i class="mx-1" data-feather="info"></i>
+            Não há reservas no histórico!
+        </div>
+    <% }else{ %>
         <!-- Pedidos -->
         <table class="table w-75 mt-5" style="margin:auto; text-align: center;">
             <thead>
@@ -10,7 +17,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Matrícula/Siape</th>
-                    <th scope="col">Telefone</th>
+                            <!-- <th scope="col">Telefone</th> -->
                     <th scope="col">Sala</th>
                     <th scope="col">Data</th>
                     <th scope="col">Empréstimo</th>
@@ -24,29 +31,30 @@
                             <%= i+1 %>
                         </th>
                         <td>
-                            <%= reservations[i].nome %>
+                            <%= reservations[i].data.nameUser %>
                         </td>
                         <td>
-                            <%= reservations[i].idAcademico %>
+                            <%= reservations[i].data.uid %>
+                        </td>
+                                <!-- <td> -->
+                                <%#= reservations[i].data.telefone %>
+                                    <!-- </td> -->
+                        <td>
+                            <%= reservations[i].data.roomName %>
                         </td>
                         <td>
-                            <%= reservations[i].telefone %>
+                            <%= reservations[i].data.date %>
                         </td>
                         <td>
-                            <%= reservations[i].salaNome %>
+                            <%= reservations[i].data.checkin %>
                         </td>
                         <td>
-                            <%= reservations[i].date %>
-                        </td>
-                        <td>
-                            <%= reservations[i].checkin %>
-                        </td>
-                        <td>
-                            <span class="<%= (reservations[i].checkout==null)?"badge rounded-pill":""%>" style="<%= (reservations[i].checkout==null)?"background: var(--corDetalhes); color:var(--corFonteClara)":""%>">
-                                <%= (reservations[i].checkout==null)?"Não finalizada":reservations[i].checkout %>
+                            <span class="<%= (reservations[i].data.checkout==null)?" badge rounded-pill":""%>" style="<%= (reservations[i].checkout==null)?"background:var(--corDetalhes); color:var(--corFonteClara)":""%>">
+                                <%= (reservations[i].data.checkout==null)?"Não finalizada":reservations[i].data.checkout%>
                             </span>
                         </td>
                     </tr>
-                    <% } %>
+                <% } %>
             </tbody>
         </table>
+    <% } %>
