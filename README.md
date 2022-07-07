@@ -89,9 +89,8 @@ Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como o
 |  RF UA004 | Editar permissões de usuários alunos | não iniciado |
 |  RF UA005 | Visualizar tela de pedidos de reservas |  [Front-end](https://github.com/The-Divers/portuno-app/blob/56de5c7a5561d656ceb6ed3fb730c462bef23947/admin/views/pages/pedidos.ejs#L41-L76) |
 |  RF UA006 | Receber pedidos de reserva |  [Front & Back](https://github.com/The-Divers/portuno-app/blob/3c4a29f0a15206e779af661656623ac2fcd25f14/admin/routes.js#L53-L65) |
-|  RF UA007 | Responder pedidos de reserva |  Em desenvolvimento |
-|  RF UA008 | Receber transferência de chave de outro usuário | não iniciado |
-|  RF UA009 | Visualizar tela de feedback | não iniciado |
-|  RF UA010 | Visualizar tela de histórico de reservas | [Front-end](https://github.com/The-Divers/portuno-app/blob/56de5c7a5561d656ceb6ed3fb730c462bef23947/admin/views/pages/historico.ejs#L38-L78) |
-|  RF UA011 | Pesquisar no  histórico de reservas | não iniciado |
+|  RF UA007 | Responder pedidos de reserva | [Front & Back](https://github.com/The-Divers/portuno-app/blob/77020887aaa0ec221f9a815e7eb2dc0009bb14dc/admin/routes.js#L57-L87) |
+|  RF UA008 | Visualizar tela de feedback | não iniciado |
+|  RF UA009 | Visualizar tela de histórico de reservas | [Front-end](https://github.com/The-Divers/portuno-app/blob/56de5c7a5561d656ceb6ed3fb730c462bef23947/admin/views/pages/historico.ejs#L38-L78) |
+|  RF UA010 | Pesquisar no  histórico de reservas | não iniciado |
 
