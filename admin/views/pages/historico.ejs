@@ -1,39 +1,7 @@
 <%- contentFor( 'contentPage' ) %>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#2565DC;">
-        <div class="container-fluid w-75" style="margin:auto;">
-            <a class="navbar-brand" href="home">
-                <img src="img/logo-navbar.png" width="150" height="30" alt="Portuno">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link mx-2" aria-current="page" href="home">Home</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link" href="pedidos">Pedidos de ocupação</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link" href="horarios">Horários</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link " href="permissoes">Permissões</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link active" href="historico">Histórico de reservas</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link " href="sair">Sair</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <%- include('../partials/navbar', {page: "historico"}) %>
 
         <!-- Pedidos -->
         <table class="table w-75 mt-5" style="margin:auto; text-align: center;">

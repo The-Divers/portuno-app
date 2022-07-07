@@ -10,18 +10,19 @@ const firestore = firebase.firestore()
 (Create, Read, Update, Delete)*/
 
 // Cadastra um novo usuário
-const createUser = async (req, res) => {
-    try {
-        // Captura dos dados através do corpo da requisição
-        const data = req.body;
-        // Operação de cadastro
-        await firestore.collection('users').doc().set(data);
-        // Feedback positivo
-        res.send('User recorded :)')
-    } catch (error) {
-        // Feedback negativo
-        res.status(400).send(error.message);
-    }
+const createUser = (req, res) => {
+    let data = req.body;
+    const uid = data.uid;
+    const email = data.email;
+    const password = data.password;
+    const auth = firebase.auth();
+    auth.createUser({ uid: uid, email: email, password: password })
+        .then((userCredential) => {
+            let user = userCredential.user;
+        })
+        .catch((error) => {
+            console.error(error);
+        });
 }
 
 // Receber todos os usuários

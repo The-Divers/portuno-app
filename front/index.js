@@ -7,7 +7,7 @@ const Auth = require("./firebase.js")
 const routes = require("./routes");
 app.use(bodyParser.urlencoded({ extended: true }))
 
-const port = 3030;
+const port = 5000;
 const address = "localhost";
 
 const expressLayouts = require('express-ejs-layouts');

@@ -1,8 +1,8 @@
 const express = require("express");
 const axios = require("axios")
-const rooms = require("./model/rooms");
+const rooms = require("./model/Rooms");
 const router = express.Router();
-const { getRooms, getOneRoom } = require('./model/rooms')
+const { getRooms, getOneRoom } = require('./model/Rooms')
 
 router.use(express.static('public'));
 
@@ -35,7 +35,6 @@ router.get('/andar1', async (req, res) => {
         }
     }
     rooms = rooms.sort((a, b) => a.data.order - b.data.order)
-    console.log(rooms);
     res.render("pages/andar1", { rooms: rooms,  filter: false });
 });
 
@@ -49,7 +48,6 @@ router.get('/andar2', async (req, res) => {
         }
     }
     rooms = rooms.sort((a, b) => a.data.order - b.data.order)
-    console.log(rooms);
     res.render("pages/andar2", { rooms: rooms, filter: false });
 });
 
@@ -69,7 +67,6 @@ router.get('/perfil', (req, res) => {
 //ROTAS DE FILTROS
 router.post('/home', async (req, res) => {
     let data = req.body
-    console.log(data)
 
     let rooms = await getRooms();
     let filterRooms = [];
@@ -113,7 +110,6 @@ router.post('/home', async (req, res) => {
 
 router.post('/andar1', async (req, res) => {
     let data = req.body
-    console.log(data)
 
     let rooms = await getRooms();
     let filterRooms = [];
@@ -157,7 +153,6 @@ router.post('/andar1', async (req, res) => {
 
 router.post('/andar2', async (req, res) => {
     let data = req.body
-    console.log(data)
 
     let rooms = await getRooms();
     let filterRooms = [];
@@ -204,11 +199,11 @@ router.get('/sendRerervation/:id', async (req, res) => {
     let room = await getOneRoom(id)
 
     let reservation = {
-        idAcademico: "511113",
-        nameUser: "Deivid Mota Freitas",
+        uid: "509697",
+        nameUser: "João Victor Barroso Alves",
         roomId: id,
         roomName: room.name,
-        tipo: "PENDENTE",
+        status: "PENDENTE",
         checkin: null,
         checkout: null
     }

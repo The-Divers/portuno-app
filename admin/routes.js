@@ -1,10 +1,11 @@
 const express = require("express");
+const { getReservations } = require("./models/Reservations");
 const router = express.Router();
-const { rooms } = require("./models/rooms")
+const { rooms } = require("./models/Rooms")
 
 router.use(express.static('public'));
 
-// Rotas de páginas
+// ROTAS DE
 router.get('/', (req, res) => {
     res.render("pages/login");
 });
@@ -15,6 +16,14 @@ router.get('/home', (req, res) => {
 
 router.get('/solicitacoes', (req, res) => {
     res.render("pages/solicitacoes");
+});
+
+router.get('/horarios', (req, res) => {
+    res.render("pages/horarios");
+});
+
+router.get('/permissoes', (req, res) => {
+    res.render("pages/permissoes");
 });
 
 router.get('/historico', (req, res) => {
@@ -41,34 +50,18 @@ router.get('/historico', (req, res) => {
     res.render("pages/historico", { reservations: reservations });
 });
 
-router.get('/pedidos', (req, res) => {
-    const reservations = [
-        {
-            nome: "Deivid Mota Freitas",
-            idAcademico: "511113",
-            tipo: "aluno",
-            salaNome: "Lab 04"
-        },
-        {
-            nome: "João Victor Barroso Alves",
-            idAcademico: "509697",
-            tipo: "aluno",
-            salaNome: "Lab 03"
-        },
-        {
-            nome: "George Allan Menezes",
-            idAcademico: "7162735",
-            tipo: "professor",
-            salaNome: "Lab 01"
-        },
-        {
-            nome: "Lazaro Natanael da Silva",
-            idAcademico: "555555",
-            tipo: "aluno",
-            salaNome: "C.A"
+router.get('/pedidos', async (req, res) => {
+    const reservations = await getReservations();
+
+    if (reservations != null) {
+        for (let i = 0; i < reservations.length; i++) {
+            if (reservations[i].data.status != "PENDENTE") {
+                reservations.splice(i, 1);
+            }
         }
-    ]
+    }
     res.render("pages/pedidos", { reservations: reservations });
+
 });
 
 
