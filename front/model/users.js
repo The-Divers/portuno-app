@@ -1,50 +1,32 @@
 let users = [
     {
-        id: 1,
-        name: "Wellington Sarmento",
-        academicId: "175375",
-        password: "starwars",
-        email: "wwelignton@virtual.ufc",
-        phoneNumber: "85 9193929596",
-        userType: "professor"
-    },
-    {
-        id: 2,
-        name: "Henrique Pequeno",
-        academicId: "777777",
-        password: "pequenohenrique",
-        email: "henriquepequeno@virtual.ufc",
-        phoneNumber: "85 997342535",
-        userType: "professor"
-    },
-    {
-        id: 3,
-        name: "João Victor Alves",
-        academicId: "509697",
-        password: "titualves",
+        uid: 509697,
+        name: "João Victor Barroso Alves",
+        password: "Jv4984538171",
         email: "joaovba2002@alu.ufc",
-        phoneNumber: "85 92136733",
+        phoneNumber: "85 992136733",
         userType: "aluno"
     },
     {
-        id: 4,
-        name: "Vládia Helen Farias",
-        academicId: "511115",
-        password: "assistajojo",
-        email: "vladiaff@alu.ufc",
-        phoneNumber: "85 111111111",
-        userType: "aluno"
+        uid: 5171453,
+        name: "Wellignton Wagner Sarmento",
+        password: "wwagner33",
+        email: "wwagner33@virtual.ufc",
+        phoneNumber: "85 992538830",
+        userType: "professor"
     }
+
 ];
 
-function authUser(academicId, password) {
-    let auth = 0
+//Autenticação
+function authenticationUser(uid, password) {
+    let authUser = null
     users.forEach(user => {
-        if (user.academicId == academicId && user.password == password) {
-            auth++;
+        if (user.uid == uid && user.password == password) {
+            authUser = user
         }
-    })
-    return (auth > 0 ? true : false)
+    });
+    return authUser
 }
 
 //CRUD
@@ -55,4 +37,4 @@ function readUsers() {
     return users;
 }
 
-module.exports = { users, authUser, readUsers, createUser };
+module.exports = { users, authenticationUser, readUsers, createUser };

@@ -3,7 +3,7 @@
 const express = require('express');
 
 //Métodos de crud
-const { createUser, readUsers, readOneUser, updateUser, deleteUser } = require('./model/User')
+const { createUser, readUsers, readOneUser, updateUser, deleteUser, login } = require('./model/User')
 const { createRoom, readRooms, readOneRoom, updateRoom, deleteRoom } = require("./model/Room")
 const { createReservation, readReservations, readOneReservation, updateReservation, deleteReservation } = require("./model/Reservation");
 

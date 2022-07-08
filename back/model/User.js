@@ -4,25 +4,40 @@ const firebase = require('../db');
 const firestore = firebase.firestore()
 
 /* Regras de negócio */
+// const login = async (req, res) => {
 
 
-/* Métodos CRUD 
-(Create, Read, Update, Delete)*/
+// }
 
 // Cadastra um novo usuário
-const createUser = (req, res) => {
+const createUser = async (req, res) => {
     let data = req.body;
+    //Dados de autenticação
     const uid = data.uid;
     const email = data.email;
     const password = data.password;
+
+    //Auth() do firebase
     const auth = firebase.auth();
-    auth.createUser({ uid: uid, email: email, password: password })
-        .then((userCredential) => {
-            let user = userCredential.user;
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+
+    try {
+        //Cadastra dados de autenticação
+        auth.createUser({ uid: uid, email: email, password: password })
+            .then((userCredential) => {
+                let user = userCredential.user;
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+
+        //Cadastra os demais dados
+        await firestore.collection('users').doc().set(data);
+        res.send('User recorded :)')
+    } catch (error) {
+        // Feedback negativo
+        res.status(400).send(error.message);
+    }
+
 }
 
 // Receber todos os usuários
@@ -33,7 +48,7 @@ const readUsers = async (req, res) => {
         // Testa se há algum usuário para poder dar o Feedback
         if (usersBd.empty) {
             // Feedback negativo
-            res.status(404).send('No user found :(')
+            console.log('No user found :(')
         } else {
             // Para cada usuário do BD será instanciado um objeto de User
             let users = usersBd.docs.map(doc => {
@@ -47,7 +62,7 @@ const readUsers = async (req, res) => {
         }
     } catch (error) {
         // Feedback negativo
-        res.status(404).send('No users found :(');
+        console.log('No users found :(');
     }
 }
 

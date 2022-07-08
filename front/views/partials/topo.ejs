@@ -2,10 +2,10 @@
 <div class="container-topo" style="color:var(--corPrincipal);">
     <!-- Andar atual -->
     <span id="andar-atual" class="dropdown d-grid gap-2 col-5 col-md-3 col-lg-2" style="width: 155px;" onchange="getRoomsByPosition(this.value)">
-      <select class="form-select" aria-label="Default select example" onchange="trocaSala(this.value)" >
-        <option value="0" <%= (pos == 0)?"selected":"" %>>Térreo</option>
-        <option value="1" <%= (pos == 1)?"selected":"" %>>1º andar</option>
-        <option value="2" <%= (pos == 2)?"selected":"" %>>2º andar</option>
+      <select class="form-select" aria-label="Default select example" onchange="window.location.href = this.value">
+        <option value="home" <%= (pos == 0)?"selected":"" %>>Térreo</option>
+        <option value="andar1" <%= (pos == 1)?"selected":"" %>>1º andar</option>
+        <option value="andar2" <%= (pos == 2)?"selected":"" %>>2º andar</option>
       </select>
     </span>
     <!-- Botão dos Filtros -->
