@@ -7,29 +7,14 @@
 
         <div class="campo-reserva mt-5">
             <h4 class="titulo-reserva mb-2">Reservas atuais:</h4>
-            <% if (myReservation !=null) { %>
-                <div class=" reserva card text-center" style="width: 100%;">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <%= myReservation.roomName %>
-                        </h5>
-                        <span style="color:var(--corPrincipal); vertical-align: middle;"><i width="18" height="18"
-                                class="feather" data-feather="bookmark"></i><span>Você está ocupando</span></span>
-                        <p class=" my-2 mb-4 card-text">Não se esqueça de devolver a chave quando terminar a reserva.</p>
-                        <a href="#" class="btn btn-outline-primary">Tranferir</a>
-                        <a href="#" class="btn btn-primary">Finalizar</a>
-                    </div>
+            <div class="alert alert-primary d-flex align-items-center" role="alert">
+                <i class="feather" data-feather="info" width="24" height="24"></i>
+                <div class="px-1">
+                    Você não possui reservas atuais!
                 </div>
-                <% }else{ %>
-                    <div class="alert alert-primary d-flex align-items-center" role="alert">
-                        <i class="feather" data-feather="info" width="24" height="24"></i>
-                        <div class="px-1">
-                            Você não possui reservas atuais!
-                        </div>
-                    </div>
-                    <% } %>
+            </div>
         </div>
-
+        
         <div class="campo-reserva mt-5">
             <h4 class="titulo-reserva mb-2">Reservas futuras:</h4>
             <div class="alert alert-primary d-flex align-items-center" role="alert">
@@ -41,5 +26,5 @@
         </div>
     </div>
 
-    <!-- NavBar -->
-    <%- include('../partials/navbar', {page: "reservas" })%>
+<!-- NavBar -->
+<%- include('../partials/navbar', {page: "reservas"})%>

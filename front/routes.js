@@ -1,15 +1,14 @@
 const express = require("express");
 const axios = require("axios")
+const rooms = require("./model/Rooms");
 const router = express.Router();
-const { getRooms, getOneRoom } = require('./model/Rooms');
-const { users, authenticationUser } = require("./model/users");
-const { getReservations } = require("./model/Reservation");
-let authUser = null
+const { getRooms, getOneRoom } = require('./model/Rooms')
+
 router.use(express.static('public'));
 
 // ROTAS DE PÁGINAS
 router.get('/', (req, res) => {
-    res.render("pages/login", { errorAuth: false });
+    res.render("pages/login");
 });
 
 router.get('/home', async (req, res) => {
@@ -22,7 +21,7 @@ router.get('/home', async (req, res) => {
         }
     }
     rooms = rooms.sort((a, b) => a.data.order - b.data.order)
-    res.render("pages/home", { rooms: rooms, filter: false, authUser: authUser });
+    res.render("pages/home", { rooms: rooms,  filter: false });
 
 });
 
@@ -36,8 +35,7 @@ router.get('/andar1', async (req, res) => {
         }
     }
     rooms = rooms.sort((a, b) => a.data.order - b.data.order)
-    console.log(authUser)
-    res.render("pages/andar1", { rooms: rooms, filter: false });
+    res.render("pages/andar1", { rooms: rooms,  filter: false });
 });
 
 router.get('/andar2', async (req, res) => {
@@ -50,7 +48,6 @@ router.get('/andar2', async (req, res) => {
         }
     }
     rooms = rooms.sort((a, b) => a.data.order - b.data.order)
-    console.log(authUser)
     res.render("pages/andar2", { rooms: rooms, filter: false });
 });
 
@@ -58,24 +55,8 @@ router.get('/horarios', (req, res) => {
     res.render("pages/horarios");
 });
 
-router.get('/reservas', async (req, res) => {
-    //Dados do usuário que está logado
-    let authUser = {
-        uid: "509697",
-        name: "João victor Barroso Alves"
-    }
-
-    let myReservation = null;
-
-    let reservations = await getReservations();
-    if (reservations != null) {
-        reservations.forEach(reservation => {
-            if (reservation.data.uid == authUser.uid && reservation.data.status == "PERMITIDO") {
-                myReservation = reservation.data;
-            }
-        });
-    }
-    res.render("pages/reservas", { myReservation: myReservation });
+router.get('/reservas', (req, res) => {
+    res.render("pages/reservas");
 });
 
 router.get('/perfil', (req, res) => {
@@ -212,37 +193,14 @@ router.post('/andar2', async (req, res) => {
     res.render("pages/andar2", { rooms: filterRooms, filter: true });
 
 });
-
 //ROTAS DE CRUD
-router.post('/auth', async (req, res) => {
-    //Autenticação
-    let uid = req.body.uid;
-    let password = req.body.password;
-    let authUser = authenticationUser(uid, password);
-
-    if (authUser != null) {
-        //Renderiza a home passando o usuário
-        let rooms = await getRooms();
-        for (var i = rooms.length - 1; i >= 0; i--) {
-            if (rooms[i].data.position != 0) {
-                let room = rooms[i];
-                rooms.splice(i, 1);
-            }
-        }
-        rooms = rooms.sort((a, b) => a.data.order - b.data.order)
-        res.render("pages/home", { rooms: rooms, filter: false, authUser: authUser });
-    } else {
-        res.render("pages/login", { errorAuth: true });
-    }
-});
-
 router.get('/sendRerervation/:id', async (req, res) => {
     let id = req.params.id;
     let room = await getOneRoom(id)
 
     let reservation = {
-        uid: 509697,
-        nameUser: "João Victor",
+        uid: "5346578",
+        nameUser: "George allan Menezes",
         roomId: id,
         roomName: room.name,
         status: "PENDENTE",
@@ -251,7 +209,6 @@ router.get('/sendRerervation/:id', async (req, res) => {
     }
 
     let response = await axios.post("http://localhost:8080/api/reserve", reservation)
-
 
 })
 
