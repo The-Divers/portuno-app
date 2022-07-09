@@ -3,6 +3,9 @@ const axios = require("axios")
 const rooms = require("./model/Rooms");
 const router = express.Router();
 const { getRooms, getOneRoom } = require('./model/Rooms')
+const { getReservations } = require('./model/Reservation')
+const { users, userApp } = require('./model/Users')
+
 
 router.use(express.static('public'));
 
@@ -21,7 +24,7 @@ router.get('/home', async (req, res) => {
         }
     }
     rooms = rooms.sort((a, b) => a.data.order - b.data.order)
-    res.render("pages/home", { rooms: rooms,  filter: false });
+    res.render("pages/home", { rooms: rooms, filter: false });
 
 });
 
@@ -35,11 +38,12 @@ router.get('/andar1', async (req, res) => {
         }
     }
     rooms = rooms.sort((a, b) => a.data.order - b.data.order)
-    res.render("pages/andar1", { rooms: rooms,  filter: false });
+    res.render("pages/andar1", { rooms: rooms, filter: false });
 });
 
 router.get('/andar2', async (req, res) => {
     let rooms = await getRooms();
+
     //Remove salas de outros andares
     for (var i = rooms.length - 1; i >= 0; i--) {
         if (rooms[i].data.position != 2) {
@@ -55,8 +59,22 @@ router.get('/horarios', (req, res) => {
     res.render("pages/horarios");
 });
 
-router.get('/reservas', (req, res) => {
-    res.render("pages/reservas");
+router.get('/reservas', async (req, res) => {
+    const reservations = await getReservations();
+    let user = userApp;
+
+    let myReservation = null;
+
+    if (reservations != null) {
+        reservations.forEach(reservation => {
+            if (user.uid == reservation.data.uid) {
+                console.log(reservation);
+                myReservation = reservation;
+            }
+        });
+    }
+
+    res.render("pages/reservas", { reservation: myReservation });
 });
 
 router.get('/perfil', (req, res) => {
@@ -196,19 +214,42 @@ router.post('/andar2', async (req, res) => {
 //ROTAS DE CRUD
 router.get('/sendRerervation/:id', async (req, res) => {
     let id = req.params.id;
+    let user = userApp;
+    let reservations = await getReservations();
     let room = await getOneRoom(id)
+    let sendReservation;
 
-    let reservation = {
-        uid: "5346578",
-        nameUser: "George allan Menezes",
-        roomId: id,
-        roomName: room.name,
-        status: "PENDENTE",
-        checkin: null,
-        checkout: null
+    if (reservations != null) {
+        reservations.forEach(reservation => {
+            // Verifica se o usuário já está reservando alguma sala
+            if (reservation.data.status == "PERMITIDO" && reservation.data.uid == user.uid) {
+                console.log("Você já está reservando uma sala!")
+            } else {
+                sendReservation = {
+                    uid: user.uid,
+                    nameUser: user.name,
+                    roomId: id,
+                    roomName: room.name,
+                    status: "PENDENTE",
+                    checkin: null,
+                    checkout: null
+                }
+            }
+        });
+    } else {
+        //Se não houver reservas
+        sendReservation = {
+            uid: user.uid,
+            nameUser: user.name,
+            roomId: id,
+            roomName: room.name,
+            status: "PENDENTE",
+            checkin: null,
+            checkout: null
+        }
     }
 
-    let response = await axios.post("http://localhost:8080/api/reserve", reservation)
+    let response = await axios.post("http://localhost:8080/api/reserve", sendReservation)
 
 })
 

@@ -6,8 +6,7 @@ async function getReservations() {
         return response.data
     }catch(error){
         return null
-    }
-       
+    }  
 }
 
 async function getOneReservation(id) {

@@ -16,8 +16,6 @@ app.set('view engine', 'ejs');
 app.use(expressLayouts);
 
 
-
-
 app.use('/', routes);
 
 const server = app.listen(port, address, function () {
