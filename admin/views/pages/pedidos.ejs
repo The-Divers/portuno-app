@@ -4,7 +4,7 @@
     <%- include('../partials/navbar', {page: "pedidos" }) %>
 
     <!-- Tela de pedidos -->
-    <% if (reservations == null) { %>
+    <% if (reservations == []) { %>
         <div class="alert alert-primary w-75 mt-3" style="margin: auto;" role="alert">
             <i class="mx-1" data-feather="info"></i>
             Não há pedidos de reserva no momento!
@@ -38,7 +38,7 @@
                         </td>
                         <td>
                             <button value="<%= reservations[i].id %>" type="button" class="btn btn-sm" style="background-color:var(--corPrincipal); color: var(--corFonteClara);" onclick="window.location.href = `/alowReservation/${this.value}`">Permitir</button>
-                            <button type="button" class="btn btn-sm" style="border: 1px solid var(--corDetalhes); color: var(--corDetalhes);">Negar</button>
+                            <button value="<%= reservations[i].id %>" type="button" class="btn btn-sm" style="border: 1px solid var(--corDetalhes); color: var(--corDetalhes);" onclick="window.location.href = `/denyReservation/${this.value}`">Negar</button>
                         </td>
                     </tr>
                 <% } %>

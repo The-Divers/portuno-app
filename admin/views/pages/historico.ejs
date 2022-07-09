@@ -49,8 +49,8 @@
                             <%= reservations[i].data.checkin %>
                         </td>
                         <td>
-                            <span class="<%= (reservations[i].data.checkout==null)?" badge rounded-pill":""%>" style="<%= (reservations[i].checkout==null)?"background:var(--corDetalhes); color:var(--corFonteClara)":""%>">
-                                <%= (reservations[i].data.checkout==null)?"Não finalizada":reservations[i].data.checkout%>
+                            <span class="<%= (reservations[i].data.status=="PERMITIDO")?" badge rounded-pill":""%>" style="<%= (reservations[i].data.status=="PERMITIDO")?"background:var(--corDetalhes); color:var(--corFonteClara)":""%>">
+                                <%= (reservations[i].data.status=="PERMITIDO")?"Não finalizada":reservations[i].data.checkout%>
                             </span>
                         </td>
                     </tr>

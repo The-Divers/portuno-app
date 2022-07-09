@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const routes = require("./routes");
 
-const port = 3030;
+const port = 3000;
 const address = "localhost";
 
 const expressLayouts = require('express-ejs-layouts');

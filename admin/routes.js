@@ -28,28 +28,29 @@ router.get('/permissoes', (req, res) => {
 
 router.get('/historico', async (req, res) => {
     const reservations = await getReservations();
-
+    let historico = []
     if (reservations != null) {
         for (let i = 0; i < reservations.length; i++) {
-            if (reservations[i].data.status == "PENDENTE") {
-                reservations.splice(i, 1);
+            if (reservations[i].data.status == "PERMITIDO" || reservations[i].data.status == "FINALIZADO") {
+                historico.push(reservations[i]);
             }
         }
     }
-    res.render("pages/historico", { reservations: reservations });
+    res.render("pages/historico", { reservations: historico });
 });
 
 router.get('/pedidos', async (req, res) => {
     const reservations = await getReservations();
-
+    const pedidos = [];
     if (reservations != null) {
         for (let i = 0; i < reservations.length; i++) {
-            if (reservations[i].data.status != "PENDENTE") {
-                reservations.splice(i, 1);
+            if (reservations[i].data.status == "PENDENTE") {
+                pedidos.push(reservations[i]);
             }
         }
     }
-    res.render("pages/pedidos", { reservations: reservations });
+
+    res.render("pages/pedidos", { reservations: pedidos });
 
 });
 
@@ -78,12 +79,23 @@ router.get('/alowReservation/:id', async (req, res) => {
         }
 
         await updateRoom(reservation.roomId, updateRoomData);
-
-
-
     }
     // 
 
 });
 
+router.get('/denyReservation/:id', async (req, res) => {
+    let id = req.params.id;
+    let reservation = await getOneReservation(id);
+
+    if (reservation != null) {
+        let updateReservationData = {
+            status: 'NEGADO'
+        }
+        //Atualiza reserva
+        await updateReservation(id, updateReservationData);
+    }
+    // 
+
+});
 module.exports = router;
