@@ -2,8 +2,8 @@ const express = require("express");
 const axios = require("axios")
 const rooms = require("./model/Rooms");
 const router = express.Router();
-const { getRooms, getOneRoom } = require('./model/Rooms')
-const { getReservations } = require('./model/Reservation')
+const { getRooms, getOneRoom, updateRoom } = require('./model/Rooms')
+const { getReservations, getOneReservation, updateReservation } = require('./model/Reservation')
 const { users, userApp } = require('./model/Users')
 
 
@@ -67,7 +67,7 @@ router.get('/reservas', async (req, res) => {
 
     if (reservations != null) {
         reservations.forEach(reservation => {
-            if (user.uid == reservation.data.uid) {
+            if (user.uid == reservation.data.uid && reservation.data.status == "PERMITIDO") {
                 console.log(reservation);
                 myReservation = reservation;
             }
@@ -80,6 +80,15 @@ router.get('/reservas', async (req, res) => {
 router.get('/perfil', (req, res) => {
     res.render("pages/perfil");
 });
+
+
+
+
+
+
+
+
+
 
 
 //ROTAS DE FILTROS
@@ -211,7 +220,23 @@ router.post('/andar2', async (req, res) => {
     res.render("pages/andar2", { rooms: filterRooms, filter: true });
 
 });
-//ROTAS DE CRUD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//ROTAS DE AÇÃO
 router.get('/sendRerervation/:id', async (req, res) => {
     let id = req.params.id;
     let user = userApp;
@@ -220,7 +245,7 @@ router.get('/sendRerervation/:id', async (req, res) => {
     let sendReservation;
 
     if (reservations != null) {
-        reservations.forEach(reservation => {
+        reservations.forEach(async reservation => {
             // Verifica se o usuário já está reservando alguma sala
             if (reservation.data.status == "PERMITIDO" && reservation.data.uid == user.uid) {
                 console.log("Você já está reservando uma sala!")
@@ -234,6 +259,7 @@ router.get('/sendRerervation/:id', async (req, res) => {
                     checkin: null,
                     checkout: null
                 }
+                let response = await axios.post("http://localhost:8080/api/reserve", sendReservation)
             }
         });
     } else {
@@ -247,10 +273,29 @@ router.get('/sendRerervation/:id', async (req, res) => {
             checkin: null,
             checkout: null
         }
+        let response = await axios.post("http://localhost:8080/api/reserve", sendReservation)
     }
-
-    let response = await axios.post("http://localhost:8080/api/reserve", sendReservation)
-
 })
+
+router.get('/finalizeReservation/:id', async (req, res) => {
+    let id = req.params.id;
+    let user = userApp;
+    let reservation = await getOneReservation(id);
+    console.log(reservation)
+    //Atualiza sala
+    let dataUpdateRoom = {
+        status: "disponível",
+        userOccupying: null
+    }
+    let responseRoom = await updateRoom(reservation.roomId, dataUpdateRoom);
+
+    //Atualiza reserva
+    let dataUpdateReservation = {
+        checkout: new Date().getHours() + "H" + new Date().getMinutes() + "min",
+        status: "FINALIZADO"
+    }
+    let responseReservation = await updateReservation(id, dataUpdateReservation);
+
+});
 
 module.exports = router;

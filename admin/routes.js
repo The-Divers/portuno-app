@@ -60,10 +60,11 @@ router.get('/alowReservation/:id', async (req, res) => {
     let reservation = await getOneReservation(id);
 
     if (reservation != null) {
+        let d = new Date();
         let updateReservationData = {
             status: 'PERMITIDO',
-            date: new Date().getDate() + "/" + new Date().getMonth(),
-            checkin: new Date().getHours() + ":" + new Date().getMinutes(),
+            date: `${d.getDate() < 10 ? '0' : ''}${d.getDate()}/${(d.getMonth() + 1) < 10 ? '0' : ''}${d.getMonth() + 1}`,
+            checkin: new Date().getHours() + "H" + new Date().getMinutes() + "min",
             checkout: null,
             roomName: reservation.roomName,
             roomId: reservation.roomId,
