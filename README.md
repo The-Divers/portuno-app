@@ -57,29 +57,25 @@ Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como o
 |  RF G005 |  Visualizar tela de salas | [Front-end](https://github.com/The-Divers/portuno-app/blob/d18a0e94245ed3494e8041ad270c8c5061005733/front/views/pages/home.ejs#L26-L55) |
 |  RF G006 |  Navegar por diferentes andares | [Front-end](https://github.com/The-Divers/portuno-app/blob/d18a0e94245ed3494e8041ad270c8c5061005733/front/views/pages/home.ejs#L5-L14) |
 |  RF G007 |  Visualizar informações específicas de uma sala | [Front-end](https://github.com/The-Divers/portuno-app/blob/d18a0e94245ed3494e8041ad270c8c5061005733/front/views/partials/modal-sala.ejs#L1-L34) | 
-|  RF G008 |  Visualizar horários de aulas e reservas futuras | Não iniciado | 
+|  RF G008 |  Visualizar horários de aulas | Não iniciado | 
 |  RF G009 |  Visualizar tela de filtros | [Front](https://github.com/The-Divers/portuno-app/blob/730397095c00394ab7f614f54c960670fd795b7d/front/views/partials/offcanvas-filtros.ejs#L1-L46) | 
 |  RF G010 |  Selecionar filtros | [Front](https://github.com/The-Divers/portuno-app/blob/d18a0e94245ed3494e8041ad270c8c5061005733/front/views/partials/offcanvas-filtros.ejs#L1-L46) | 
 |  RF G011 |  Aplicar filtro | [Front-end & Back](https://github.com/The-Divers/portuno-app/blob/c774dd6acca3525d9e93214419a34bcdacce2fef/front/routes.js#L69-L200) | 
-|  RF G012 |  Receber notificações | não iniciado | 
-|  RF G013 |  Visualizar tela de perfil | [Front-end](https://github.com/The-Divers/portuno-app/blob/d18a0e94245ed3494e8041ad270c8c5061005733/front/views/pages/perfil.ejs#L3-L37) | 
-|  RF G014 |  Permitir edição de dados de perfil | Desenvolvimento | 
-|  RF G015 |  Validar edição de dados | não iniciado | 
-|  RF G016 |  Efetivar atualização do perfil | Desenvolvimento | 
+|  RF G012 |  Visualizar tela de perfil | [Front-end](https://github.com/The-Divers/portuno-app/blob/d18a0e94245ed3494e8041ad270c8c5061005733/front/views/pages/perfil.ejs#L3-L37) | 
+|  RF G013 |  Permitir edição de dados de perfil | Desenvolvimento | 
+|  RF G014 |  Validar edição de dados | não iniciado | 
+|  RF G015 |  Efetivar atualização do perfil | Desenvolvimento | 
 
 | Requisito  |  Definição  |  Código   |
 | ------------------- | ------------------- |--------------------------------|
 |  RF UC001 | Visualizar tela de pedido de reserva | [Front-end](https://github.com/The-Divers/portuno-app/blob/14868c743cdc7b70c90c2a44c5ad986b25807299/front/views/pages/home.ejs#L88-L134) |
 |  RF UC002 | Enviar pedido de reserva | [Em desenvolvimento](https://github.com/The-Divers/portuno-app/blob/c774dd6acca3525d9e93214419a34bcdacce2fef/front/routes.js#L202-L218) |
 |  RF UC003 | Visulaizar tela de reserva com ocupação atual | [Em desenvolvimento](https://github.com/The-Divers/portuno-app/blob/c774dd6acca3525d9e93214419a34bcdacce2fef/front/views/pages/reservas.ejs#L6-L27) |
-|  RF UC004 | Alertar término da reserva |  Em desenvolvimento |
-|  RF UC005 | Visualizar tela de transferência de chave |  Em desenvolvimento |
-|  RF UC006 | Validar transferência de chave | não iniciado |
-|  RF UC007 | Fazer transferência de chave para outro usuário | não iniciado |
-|  RF UC008 | Receber transferência de chave de outro usuário | não iniciado |
-|  RF UC009 | Encerrar ocupação | Em desenvolvimento |
-|  RF UC010 | Visualizar tela de feedback |  Em desenvolvimento |
-|  RF UC011 | Submeter feedback | não iniciado |
+|  RF UC004 | Visualizar tela de transferência de chave |  Em desenvolvimento |
+|  RF UC005 | Validar transferência de chave | não iniciado |
+|  RF UC006 | Fazer transferência de chave para outro usuário | não iniciado |
+|  RF UC007 | Receber transferência de chave de outro usuário | não iniciado |
+|  RF UC008 | Encerrar ocupação | Em desenvolvimento |
 
 | Requisito  |  Definição  |  Código   |
 | ------------------- | ------------------- |--------------------------------|
@@ -90,7 +86,6 @@ Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como o
 |  RF UA005 | Visualizar tela de pedidos de reservas |  [Front-end](https://github.com/The-Divers/portuno-app/blob/56de5c7a5561d656ceb6ed3fb730c462bef23947/admin/views/pages/pedidos.ejs#L41-L76) |
 |  RF UA006 | Receber pedidos de reserva |  [Front & Back](https://github.com/The-Divers/portuno-app/blob/3c4a29f0a15206e779af661656623ac2fcd25f14/admin/routes.js#L53-L65) |
 |  RF UA007 | Responder pedidos de reserva | [Front & Back](https://github.com/The-Divers/portuno-app/blob/77020887aaa0ec221f9a815e7eb2dc0009bb14dc/admin/routes.js#L57-L87) |
-|  RF UA008 | Visualizar tela de feedback | não iniciado |
-|  RF UA009 | Visualizar tela de histórico de reservas | [Front-end](https://github.com/The-Divers/portuno-app/blob/56de5c7a5561d656ceb6ed3fb730c462bef23947/admin/views/pages/historico.ejs#L38-L78) |
-|  RF UA010 | Pesquisar no  histórico de reservas | não iniciado |
+|  RF UA008 | Visualizar tela de histórico de reservas | [Front-end](https://github.com/The-Divers/portuno-app/blob/56de5c7a5561d656ceb6ed3fb730c462bef23947/admin/views/pages/historico.ejs#L38-L78) |
+|  RF UA009 | Pesquisar no  histórico de reservas | não iniciado |
 
