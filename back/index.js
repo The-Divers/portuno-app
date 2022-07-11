@@ -7,6 +7,7 @@ const config = require('./config');
 
 //Atribuição de rotas
 const router = require('./routes');
+const { readRooms } = require('./model/Room');
 
 //Instanciação de uma aplicação em Express
 const app = express();
@@ -20,6 +21,7 @@ app.use(bodyParser.json());
 app.use('/api', router.routes);
 
 //Definição de onde a Api será ouvida
-app.listen(config.port, () => {
+app.listen(config.port, async () => {
+    console.log( await readRooms())
     console.log(`PORTUNO is listening on url ${config.url}`)
 })

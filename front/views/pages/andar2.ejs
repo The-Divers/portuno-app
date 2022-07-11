@@ -11,12 +11,9 @@
     <div class="mt-md-1">
         <!-- Sala -->
         <% for (let i = 0; i < rooms.length; i++){ %>
-                <div class="sala <%= ((i%2) == 0)?"esquerda":"direita" %> py-3 px-3">
+                <div style="text-align: center;" class="sala <%= ((i%2) == 0)?"esquerda":"direita" %> py-3 px-3" data-bs-toggle="modal" data-bs-target="#salaModal<%= rooms[i].data.order %>">
                     <h4><%= rooms[i].data.name %></h4>
-                    <span class="tag-status <%= (rooms[i].data.status == "disponível")?"disponivel px-1":"ocupado px-2" %>" style="margin-right:10px;"><%= rooms[i].data.status %></span>
-                    <button id="btn-plus" type="button" class="btn" color="$white" data-bs-toggle="modal" data-bs-target="#salaModal<%= rooms[i].data.order %>">
-                    <i style="width: 20px; height: 20px; margin-left:-8px; margin-top:-9px;" data-feather="plus"></i>
-                    </button>
+                    <span class="tag-status <%= (rooms[i].data.status == "disponível")?"disponivel px-2":"ocupado px-3" %>"><%= rooms[i].data.status %></span>
                 </div>
             <% } %>
 

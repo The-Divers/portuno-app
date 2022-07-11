@@ -31,7 +31,7 @@ const readRooms = async (req, res) => {
         // Testa se há algum usuário para poder dar o Feedback
         if (roomsBd.empty) {
             // Feedback negativo
-            res.status(404).send('No user found :(')
+            res.status(404).send('No rooms found :(')
         } else {
             // Para cada usuário do BD será instanciado um objeto de User
             let rooms = roomsBd.docs.map(doc => {
@@ -45,7 +45,8 @@ const readRooms = async (req, res) => {
         }
     } catch (error) {
         // Feedback negativo
-        res.status(404).send('No users found :(');
+        console.log(error.message);
+        //res.status(404).send(error);
     }
 }
 

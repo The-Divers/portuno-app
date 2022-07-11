@@ -1,8 +1,14 @@
 const express = require("express");
 const { getReservations, getOneReservation, updateReservation } = require("./models/Reservations");
 const router = express.Router();
-const { rooms, updateRoom } = require("./models/Rooms")
 
+const rooms = require("./models/Rooms");
+const {getRooms, updateRoom } = require("./models/Rooms")
+
+//Tentativa
+//const rooms = require("./model/Rooms");
+//const { getRooms} = require('./models/rooms')
+//
 router.use(express.static('public'));
 
 // ROTAS DE PÁGINAS
@@ -10,9 +16,9 @@ router.get('/', (req, res) => {
     res.render("pages/login");
 });
 
-router.get('/home', (req, res) => {
-    res.render("pages/home", { rooms });
-});
+//router.get('/home', (req, res) => {
+  // res.render("pages/home", { rooms });
+//});
 
 router.get('/solicitacoes', (req, res) => {
     res.render("pages/solicitacoes");
@@ -25,6 +31,20 @@ router.get('/horarios', (req, res) => {
 router.get('/permissoes', (req, res) => {
     res.render("pages/permissoes");
 });
+
+//TENTATIVA
+
+router.get('/home', async (req, res) => {
+    let rooms = await getRooms();
+
+    rooms = rooms.sort((a, b) => a.data.order - b.data.order)
+    res.render("pages/home", { rooms: rooms, filter: false });
+
+});
+
+
+
+//TENTATIVA END
 
 router.get('/historico', async (req, res) => {
     const reservations = await getReservations();

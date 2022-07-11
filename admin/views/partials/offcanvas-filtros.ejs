@@ -1,0 +1,60 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel"
+            style="width: 48.0676328502%;  max-width: 350px;">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Filtros</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form method="post" action="/home">
+                    <!-- filtros Tipo de sala -->
+                    <h1 class="topico mb-3">Tipo de sala:</h1>
+                     
+                    <div class="form-check" style="font-size:16px;">
+                        <input class="form-check-input" type="radio" name="filter1" value="sala de aula" id="filtroSalaDeAula">
+                        <label class="form-check-label" for="filtroSalaDeAula">
+                          Sala de aula
+                        </label>
+                      </div>
+                      <div class="form-check" style="font-size:16px;">
+                        <input class="form-check-input" type="radio" name="filter1" value="laboratório de informática" id="filtroLabInfo">
+                        <label class="form-check-label" for="filtroLabInfo">
+                            Lab. de informática
+                        </label>
+                      </div>
+                      <div class="form-check" style="font-size:16px;">
+                        <input class="form-check-input" type="radio" name="filter1" value="laboratório temático" id="filtroLabTem">
+                        <label class="form-check-label" for="filtroLabTem">
+                            Lab. temático
+                        </label>
+                      </div>
+                      <div class="form-check" style="font-size:16px;">
+                        <input class="form-check-input" type="radio" name="filter1" value="sala temática" id="filtroSalTem">
+                        <label class="form-check-label" for="filtroSalTem">
+                            Salas temáticas
+                        </label>
+                      </div>
+                   
+                    <!-- filtros Status de sala -->
+                    <h1 class="topico my-3">Status de sala:</h1>
+                    
+                      <div class="form-check" style="font-size:16px;">
+                        <input class="form-check-input" type="radio" name="filter2" value="disponível" id="filtroDisp">
+                        <label class="form-check-label" for="filtroDisp">
+                            Disponíveis
+                        </label>
+                      </div>
+                      <div class="form-check" style="font-size:16px;">
+                        <input class="form-check-input" type="radio" name="filter2" value="ocupado" id="filtroOcup">
+                        <label class="form-check-label" for="filtroOcup">
+                            Ocupados
+                        </label>
+                      </div>
+        
+                    <div class="text-center pt-5">
+                        <button class="btn mt-5 px-4"
+                            style="color:var(--corFonteClara); background:var(--corPrincipal);"
+                            type="submit">Filtrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>

@@ -1,0 +1,18 @@
+<!-- Salas -->
+<div class="container-salas mt-md-1">
+    <h2>Terreo</h2>
+
+    <div class="mt-md-1">
+    <!-- Sala -->
+    <% for (let i=0; i < rooms.length; i++){ %>
+        <div style="text-align: center;" class="sala <%= ((i%2) == 0)?" esquerda":"direita" %> py-3 px-3" data-bs-toggle="modal" data-bs-target="#salaModal<%= rooms[i].data.order %>">
+            <h4><%= rooms[i].data.name %></h4>
+            <span class="tag-status <%= (rooms[i].data.status == "disponível")?"disponivel px-2":"ocupado px-3" %>"><%= rooms[i].data.status %></span>
+        </div>
+    <% } %>
+
+     <!-- Salas fantasmas
+     <div class="sala sala-fantasma py-5 px-3"></div>
+     <div class="sala sala-fantasma py-5 px-3"></div>-->
+    </div>
+</div>

@@ -1,0 +1,42 @@
+ <!-- Modal Informações de Sala-->
+<% for (let i=0; i < rooms.length; i++){ %>
+    <div class="modal" id="salaModal<%= rooms[i].data.order %>" tabindex="-1" aria-labelledby="salaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Cabeçalho do modal -->
+                <div class="modal-header" style="text-align: center;">
+                    <h3><%= rooms[i].data.name %></h3>
+                    <span class="status-sala" style=<%= (rooms[i].data.status=="disponível")?"color:var(--corVerde);":"color:var(--corVermelho);" %>>
+                        <i class="feather" data-feather=<%= (rooms[i].data.status=="disponível" )?"check":"x-circle" %> width="18" height="18"></i>
+                        <%= rooms[i].data.status %>
+                    </span>
+                </div>
+                <!-- Corpo do modal -->
+                <div class="modal-body">
+                    <div class="informacoes-sala">
+                        <h5 class="topico">Tipo de sala:</h5>
+                        <h5 class="conteudo"><%= rooms[i].data.roomType %></h5>
+
+                        <h5 class="topico">Quantidade de espaços:</h5>
+                        <h5 class="conteudo"><%= rooms[i].data.roomCapacity %></h5>
+
+                        <h5 class="topico">Contém:</h5>
+                        <% rooms[i].data.contains.forEach(content=> { %>
+                                <h5 class="conteudo"><%= content %></h5>
+                            <% }); %>
+                        
+                        <% if(rooms[i].data.status=="ocupado" ) { %>
+                                <h5 class="topico">Ocupado por:</h5>
+                                <h5 class="conteudo"><%= rooms[i].data.userOccupying %></h5>
+                            <% } %>
+                    </div>
+                </div>
+                <!-- Rodapé do modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservaModal<%= rooms[i].data.order %> ">Editar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>

@@ -12,6 +12,8 @@
     --corVermelho: #E11B3F;
     --corDetalhes: #6593E6;
     --corSalas: #f9fcff;
+
+
 }
 
 /* Formatações gerais */
@@ -19,6 +21,7 @@ body {
     padding: 0;
     margin: 0;
     background: var(--corFundo);
+    font-family: "Roboto";
 }
 
 .container {
@@ -27,7 +30,8 @@ body {
 }
 
 #btn-geral {
-    margin-top: 30.4347826087%;
+    margin-top: 20.4347826087%;
+    font-weight: 600;
 }
 
 /* TELA DE LOGIN */
@@ -51,8 +55,7 @@ body {
 }
 
 #andar-atual select {
-    font-family: 'Montserrat';
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
     border: 0;
     appearance: none;
@@ -66,9 +69,8 @@ body {
 }
 
 #filtros button {
-    font-family: 'Roboto';
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 500;
 }
 .container-topo{
     margin: 0;
@@ -80,6 +82,7 @@ body {
 .sala {
     float: left;
     width: 164px;
+    height: 85px;
     background: var(--corSala);
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
@@ -97,13 +100,6 @@ body {
 
 .esquerda {
     margin-right: 20px;
-}
-
-#btn-plus {
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-    color: var(--corPrincipal);
 }
 
 .tag-status {
@@ -131,6 +127,8 @@ body {
 
 .navbar a {
     color: var(--corFonteClara);
+    font-weight: 300;
+    font-size: 14px;
     text-decoration: none;
     text-align: center;
 }
@@ -141,7 +139,6 @@ a.atual{
 }
 /* SALA */
 h3 {
-    font-family: 'Roboto', sans-serif;
     font-weight: 500;
 }
 
@@ -156,14 +153,13 @@ h3 {
 }
 
 .modal-header h5 {
-    font-family: 'Montserrat';
     font-size: 20px;
     font-weight: 600;
 }
 
 .status-sala {
-    font-family: 'Roboto';
     font-size: 16px;
+    font-weight: 400;
     color: var(--corVerde)
 }
 
@@ -177,13 +173,11 @@ h3 {
 }
 
 .topico {
-    font-family: 'Roboto';
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .conteudo {
-    font-family: 'Roboto';
     font-size: 16px;
     font-weight: 300;
 }
@@ -195,8 +189,7 @@ h3 {
 
 /* TITULOS */
 .titulo {
-    font-family: 'Montserrat';
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
     text-align: center;
     margin-top: 18.5990338164%;
@@ -236,7 +229,6 @@ h3 {
         margin-right: 20px;
         margin-bottom: 15px;
     }
-
     .titulo {
         margin-top: 30px;
         margin-bottom: 10px;
@@ -275,7 +267,6 @@ h3 {
     .tag-status {
         padding-top: 2px;
         padding-bottom: 1px;
-        margin: 0;
     }
 
     #btn-plus {
@@ -299,4 +290,13 @@ h3 {
     .container-salas {
         margin-left: 0;
     }
+}
+
+/*Ajuste da hierarquia */
+h4, h3{
+    font-weight: 500;
+    font-size: 20px;
+}
+h4{
+    margin-bottom: 5px;
 }
