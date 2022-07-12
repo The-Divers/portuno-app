@@ -1,0 +1,29 @@
+ <!-- Modal Informações de Sala-->
+    <div class="modal" id="transferirModal" tabindex="-1" aria-labelledby="transferirModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Cabeçalho do modal -->
+                <div class="modal-header" style="text-align: center;">
+                    <h3>Insira a matrícula</h3>
+                    <span class="status-sala" style="color:var(--corPrincipal);">
+                        <i class="feather" data-feather="refresh-cw" width="18" height="18"></i>
+                        Transferindo
+                    </span>
+                </div>
+                <!-- Corpo do modal -->
+                <div class="modal-body">
+                    <div class="informacoes-sala"> 
+                        <form>
+                            <label for="idAcademico" class="form-label">Matrícula ou Siape do destinatário</label>
+                            <input type="text" id="perfil-idAcademico" style="background-color: var(--corFundo);" class="form-control">
+                        </form>
+                    </div>
+                </div>
+                <!-- Rodapé do modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Transferir</button>
+                </div>
+            </div>
+        </div>
+    </div>

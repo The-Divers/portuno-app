@@ -2,3 +2,73 @@
 
     <!-- Navbar -->
     <%- include('../partials/navbar', {page: "horarios"}) %>
+
+    <div id="container-horarios" class="component container">
+        <!-- Topo -->
+        <%- include("../partials/topo edit") %> <br>
+        <div class="container-tb" style="text-align: center;">
+        <table class="table w-75 mt-4" style="margin:auto;">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        <select class="form-select" >
+                            <option value="0">Segunda</option>
+                            <option value="1">Terça</option>
+                            <option value="2">Quarta</option>
+                            <option value="3">Quinta</option>
+                            <option value="4">Sexta</option>
+                          </select>
+                    </th>
+                    <th scope="col">
+                        <select class="form-select" >
+                            <option value="0">08h-10h</option>
+                            <option value="1">10h-12h</option>
+                            <option value="2">12h-14h</option>
+                            <option value="3">14h-16h</option>
+                            <option value="4">16h-18h</option>
+                            <option value="5">18h-20h</option>
+                            <option value="6">20h-22h</option>
+                          </select>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+
+        <table class="table mt-3" style="margin:auto;">
+            <thead>
+                <tr>
+                    <th scope="col">Sala</th>
+                    <th scope="col">Ocupador</th>
+                    <th scope="col">Aula</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Sala 01</td>
+                    <td>Wellington</td>
+                    <td>Projeto Integrado I</td>
+                </tr>
+
+                <tr>
+                    <td>Lab. 04</td>
+                    <td>Henrique Pequeno</td>
+                    <td>Autoração Multimídia</td>
+                </tr>
+
+                <tr>
+                    <td>Lab. 05</td>
+                    <td>Cátia</td>
+                    <td>Interação-Humano Computador</td>
+                </tr>
+
+                <tr>
+                    <td>Lab. 01</td>
+                    <td>Leonilia</td>
+                    <td>Design de Interfaces Gráficas</td>
+                </tr>
+
+            </tbody>
+        </table>
+        </div>
+    </div>

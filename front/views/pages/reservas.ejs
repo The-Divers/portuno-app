@@ -23,7 +23,7 @@
                             <span>Você está reservando</span>
                         </span>
                         <p class="card-text mt-3 mb-4 w-50" style="margin:auto;">Sua reserva acabará em <strong>30 minutos</strong></p>
-                        <button class="btn btn-outline-primary">Tranferir chave</button>
+                        <button class="btn btn-outline-primary"  data-bs-toggle="modal" data-bs-target="#transferirModal">Tranferir chave</button>
                         <button value="<%= reservation.id %>" class="btn btn-primary" onclick="window.location.href =`/finalizeReservation/${this.value}`">Finalizar</button>
                     </div>
                 </div>
@@ -39,7 +39,10 @@
                 </div>
             </div>
         </div>
+
+        <%- include('../partials/transferencia') %>
     </div>
+
 
     <!-- NavBar -->
     <%- include('../partials/navbar', {page: "reservas" })%>
