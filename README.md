@@ -1,4 +1,7 @@
+![path177-2](https://user-images.githubusercontent.com/86852231/178410101-d90a74ce-97fd-436a-8b4e-dd4555ff6e44.png) 
+
 # Portuno
+
 
 Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como objetivo otimizar a ocupação de salas no bloco do SMD. Ele foi criado durante a disciplina de Projeto 1 e utilizando os conhecimentos de Autoração Multimídia, IHC e Design de Interfaces Gráficas
 
