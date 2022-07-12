@@ -1,8 +1,7 @@
 const express = require("express");
 const axios = require("axios")
-const rooms = require("./model/Rooms");
 const router = express.Router();
-const { getRooms, getOneRoom, updateRoom } = require('./model/Rooms')
+const { mockRooms, getRooms, getOneRoom, updateRoom } = require('./model/Rooms')
 const { getReservations, getOneReservation, updateReservation } = require('./model/Reservation')
 const { userApp } = require('./model/Users')
 
@@ -16,7 +15,8 @@ router.get('/', (req, res) => {
 
 router.get('/home', async (req, res) => {
     //Recebe todas as salas
-    let rooms = await getRooms();
+    // let rooms = await getRooms();
+    let rooms = mockRooms;
     //Remove salas de outros andares
     for (var i = rooms.length - 1; i >= 0; i--) {
         if (rooms[i].data.position != 0) {
@@ -31,7 +31,8 @@ router.get('/home', async (req, res) => {
 
 router.get('/andar1', async (req, res) => {
     //Recebe todas as salas
-    let rooms = await getRooms();
+    // let rooms = await getRooms();
+    let rooms = mockRooms;
     //Remove salas de outros andares
     for (var i = rooms.length - 1; i >= 0; i--) {
         if (rooms[i].data.position != 1) {
@@ -46,7 +47,8 @@ router.get('/andar1', async (req, res) => {
 
 router.get('/andar2', async (req, res) => {
     //Recebe todas as salas
-    let rooms = await getRooms();
+    // let rooms = await getRooms();
+    let rooms = mockRooms;
     //Remove salas de outros andares
     for (var i = rooms.length - 1; i >= 0; i--) {
         if (rooms[i].data.position != 2) {
@@ -65,7 +67,7 @@ router.get('/horarios', (req, res) => {
 
 router.get('/reservas', async (req, res) => {
     //Recebe as reservas
-    const reservations = await getReservations();
+    // const reservations = await getReservations();
     let user = userApp;
 
     let myReservation = null;
@@ -165,7 +167,8 @@ router.get('/finalizeReservation/:id', async (req, res) => {
 router.post('/home', async (req, res) => {
     let data = req.body
     //Recebe salas
-    let rooms = await getRooms();
+    // let rooms = await getRooms();
+    let rooms = mockRooms;
     let filterRooms = [];
     //Remove salas de outros andares
     for (var i = rooms.length - 1; i >= 0; i--) {
@@ -208,7 +211,8 @@ router.post('/home', async (req, res) => {
 router.post('/andar1', async (req, res) => {
     let data = req.body
     //Recebe salas
-    let rooms = await getRooms();
+    // let rooms = await getRooms();
+    let rooms = mockRooms;
     let filterRooms = [];
     //Remove salas de outros andares
     for (var i = rooms.length - 1; i >= 0; i--) {
@@ -251,7 +255,8 @@ router.post('/andar1', async (req, res) => {
 router.post('/andar2', async (req, res) => {
     let data = req.body
     //Recebe as salas
-    let rooms = await getRooms();
+    // let rooms = await getRooms();
+    let rooms = mockRooms;
     let filterRooms = [];
     //Remove salas de outros andares
     for (var i = rooms.length - 1; i >= 0; i--) {

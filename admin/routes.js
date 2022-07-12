@@ -1,9 +1,7 @@
 const express = require("express");
 const { getReservations, getOneReservation, updateReservation } = require("./models/Reservations");
 const router = express.Router();
-
-const rooms = require("./models/Rooms");
-const {getRooms, updateRoom } = require("./models/Rooms")
+const {mockRooms, getRooms, updateRoom } = require("./models/Rooms")
 
 //Tentativa
 //const rooms = require("./model/Rooms");
@@ -16,9 +14,9 @@ router.get('/', (req, res) => {
     res.render("pages/login");
 });
 
-//router.get('/home', (req, res) => {
-  // res.render("pages/home", { rooms });
-//});
+// router.get('/home', (req, res) => {
+//   res.render("pages/home", { rooms: mockRooms });
+// });
 
 router.get('/solicitacoes', (req, res) => {
     res.render("pages/solicitacoes");
@@ -35,7 +33,8 @@ router.get('/permissoes', (req, res) => {
 //TENTATIVA
 
 router.get('/home', async (req, res) => {
-    let rooms = await getRooms();
+    // let rooms = await getRooms();
+    let rooms = mockRooms;
 
     rooms = rooms.sort((a, b) => a.data.order - b.data.order)
     res.render("pages/home", { rooms: rooms, filter: false });
