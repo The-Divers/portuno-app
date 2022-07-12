@@ -1,0 +1,42 @@
+<!-- Modal Confirmação de Reserva -->
+<% for (let i=0; i < rooms.length; i++){ %>
+    <div class="modal" id="reservaModal<%= rooms[i].data.order %>" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Cabeçalho do modal -->
+                <div class="modal-header" style="text-align: center;">
+                    <h3><%= rooms[i].data.name %></h3>
+                    <span class="status-sala" style="color: var(--corDetalhes)">
+                        <i class="feather" data-feather="edit" width="18" height="18"></i> Editando
+                    </span>
+                </div>
+                <!-- Corpo do modal -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                          <label class="topico" for="nomeSala">Nome:</label>
+                          <input type="text" class="form-control" id="nomeSala" aria-describedby="Editar nome da sala" placeholder="<%= rooms[i].data.name %>">
+                        </div>
+                        <div class="form-group">
+                            <label class="topico" for="tipoSala">Tipo de sala:</label>
+                            <input type="text" class="form-control" id="tipoSala" aria-describedby="Editar tipo da sala" placeholder="<%= rooms[i].data.roomType %>">
+                        </div>
+                        <div class="form-group">
+                            <label class="topico" for="qtdSala">Quantidade de espaços:</label>
+                            <input type="text" class="form-control" id="qtdSala" aria-describedby="Editar quantidade máxima de espaços da sala"  placeholder="<%= rooms[i].data.roomCapacity %>">
+                        </div>
+                        <div class="form-group">
+                            <label class="topico" for="contemSala">Contem:</label>
+                            <textarea class="form-control" id="contemSala" rows="3" placeholder="<%= rooms[i].data.contains %>"></textarea>
+                          </div>
+                      </form>
+                </div>
+                <!-- Rodapé do Modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" value="<%= rooms[i].id %>" onclick="window.location.href = `/editRoom/${this.value}` " class="btn btn-primary">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>

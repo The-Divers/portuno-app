@@ -14,9 +14,14 @@ router.get('/', (req, res) => {
     res.render("pages/login");
 });
 
-// router.get('/home', (req, res) => {
-//   res.render("pages/home", { rooms: mockRooms });
-// });
+router.get('/home', async (req, res) => {
+    // let rooms = await getRooms();
+    let rooms = mockRooms;
+
+    rooms = rooms.sort((a, b) => a.data.order - b.data.order)
+    res.render("pages/home", { rooms: rooms, filter: false });
+
+});
 
 router.get('/solicitacoes', (req, res) => {
     res.render("pages/solicitacoes");
@@ -29,21 +34,6 @@ router.get('/horarios', (req, res) => {
 router.get('/permissoes', (req, res) => {
     res.render("pages/permissoes");
 });
-
-//TENTATIVA
-
-router.get('/home', async (req, res) => {
-    // let rooms = await getRooms();
-    let rooms = mockRooms;
-
-    rooms = rooms.sort((a, b) => a.data.order - b.data.order)
-    res.render("pages/home", { rooms: rooms, filter: false });
-
-});
-
-
-
-//TENTATIVA END
 
 router.get('/historico', async (req, res) => {
     const reservations = await getReservations();

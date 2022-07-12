@@ -17,14 +17,14 @@
         </div>
     <% } %>
 
-     <!-- Salas fantasmas
-     <div class="sala sala-fantasma py-5 px-3"></div>
-     <div class="sala sala-fantasma py-5 px-3"></div>-->
     </div>
 </div>
 
         <!-- Modal Sala-->
         <%- include('../partials/info-sala',{ rooms: rooms }) %>
+        <!-- Modal Editar Sala -->
+        <%- include('../partials/editar-sala',{ rooms: rooms })%>
+        
         <!-- Offcanvas Filtros  -->
         <%- include('../partials/offcanvas-filtros') %>
 </div>
