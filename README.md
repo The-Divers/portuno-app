@@ -67,6 +67,7 @@ Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como o
 |  RF G012 |  Permitir edição de dados de perfil | Desenvolvimento | 
 |  RF G013 |  Validar edição de dados | não iniciado | 
 |  RF G014 |  Efetivar atualização do perfil | Desenvolvimento | 
+|  RF G015 |  Realizar Logout | [Front](https://github.com/The-Divers/portuno-app/blob/568387c215abec14c7c5cbb6c2ebc144c946150e/front/views/pages/perfil.ejs#L34-L36) | 
 
 | Requisito  |  Definição  |  Código   |
 | ------------------- | ------------------- |--------------------------------|
