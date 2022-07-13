@@ -43,11 +43,11 @@ Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como o
 ### Equipe The Divers
 | Nome  |  Matrícula  | 
 | ------------------- | ------------------- |
-| Eduardo Oliveira Viana | 512182 |
-| João Victor Barroso Alves | 509697 |
-| Lazaro Natanael da Silva | 511849 |
-| Marcos Erick Gomes Miranda | 509686 |
-| Vládia Helen Ferreira Farias | 511730 |
+| Eduardo Oliveira Viana |
+| João Victor Barroso Alves |
+| Lazaro Natanael da Silva |
+| Marcos Erick Gomes Miranda |
+| Vládia Helen Ferreira Farias |
 
 ### Mapa de Requisitos
 
