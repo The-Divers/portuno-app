@@ -3,20 +3,24 @@ const axios = require("axios")
 const router = express.Router();
 const { mockRooms, getRooms, getOneRoom, updateRoom } = require('./model/Rooms')
 const { getReservations, getOneReservation, updateReservation } = require('./model/Reservation')
-const { userApp } = require('./model/Users')
+const { users, userApp } = require('./model/Users')
 
 router.use(express.static('public'));
 
 /* <<< ROTAS DE PÁGINAS >>> */
 
 router.get('/', (req, res) => {
-    res.render("pages/login");
+    res.render("pages/login", { alert: null });
+});
+
+router.get('/errorLogin', (req, res) => {
+    res.render("pages/login", { alert: "Entre com dados de login corretos!" });
 });
 
 router.get('/home', async (req, res) => {
     //Recebe todas as salas
-    // let rooms = await getRooms();
-    let rooms = mockRooms;
+    let rooms = await getRooms();
+    // let rooms = mockRooms;
     //Remove salas de outros andares
     for (var i = rooms.length - 1; i >= 0; i--) {
         if (rooms[i].data.position != 0) {
@@ -31,8 +35,8 @@ router.get('/home', async (req, res) => {
 
 router.get('/andar1', async (req, res) => {
     //Recebe todas as salas
-    // let rooms = await getRooms();
-    let rooms = mockRooms;
+    let rooms = await getRooms();
+    // let rooms = mockRooms;
     //Remove salas de outros andares
     for (var i = rooms.length - 1; i >= 0; i--) {
         if (rooms[i].data.position != 1) {
@@ -47,8 +51,8 @@ router.get('/andar1', async (req, res) => {
 
 router.get('/andar2', async (req, res) => {
     //Recebe todas as salas
-    // let rooms = await getRooms();
-    let rooms = mockRooms;
+    let rooms = await getRooms();
+    // let rooms = mockRooms;
     //Remove salas de outros andares
     for (var i = rooms.length - 1; i >= 0; i--) {
         if (rooms[i].data.position != 2) {
@@ -67,27 +71,19 @@ router.get('/horarios', (req, res) => {
 
 router.get('/reservas', async (req, res) => {
     //Recebe as reservas
-    // const reservations = await getReservations();
+    const reservations = await getReservations();
     let user = userApp;
 
-    // let myReservation = null;
-    let myReservation = {
-        id: 01,
-        data: {
-            uid: user.uid,
-            roomName: "Sala 01"
-        }
-    }
+    let myReservation = null;
 
-    //Mostra apenas as reservas relacionadas ao usuário
-    // if (reservations != null) {
-    //     reservations.forEach(reservation => {
-    //         if (user.uid == reservation.data.uid && reservation.data.status == "PERMITIDO") {
-    //             console.log(reservation);
-    //             myReservation = reservation;
-    //         }
-    //     });
-    // }
+    // Mostra apenas as reservas relacionadas ao usuário
+    if (reservations != null) {
+        reservations.forEach(reservation => {
+            if (user.uid == reservation.data.uid && reservation.data.status == "PERMITIDO") {
+                myReservation = reservation;
+            }
+        });
+    }
     //Renderiza a página de reservas
     res.render("pages/reservas", { reservation: myReservation });
 });
@@ -107,13 +103,12 @@ router.get('/sendRerervation/:id', async (req, res) => {
     let room = await getOneRoom(id)
     //Variável auxiliar para envio de reserva
     let sendReservation;
-    // let sendStatus;
 
     if (reservations != null) {
         reservations.forEach(async reservation => {
             // Verifica se o usuário já está reservando alguma sala
             if (reservation.data.status == "PERMITIDO" && reservation.data.uid == user.uid) {
-                // sendStatus = "Você já está reservando uma sala!";
+                console.log("Você já está reservando uma sala!");
             } else {
                 sendReservation = {
                     uid: user.uid,
@@ -125,9 +120,7 @@ router.get('/sendRerervation/:id', async (req, res) => {
                     checkout: null
                 }
                 //Reservando a sala
-                let response = await axios.post("http://localhost:8080/api/reserve", sendReservation)
-                //Status
-                // sendStatus = (response == "Reservation recorded :)") ? "Seu pedido de reserva foi enviado com sucesso, aguarde a confirmação!" : "Ocorreu um erro no seu pedido de reserva, tente novamente!";
+                let response = await axios.post("http://localhost:8080/api/reserve", sendReservation);
             }
         });
     } else {
@@ -142,17 +135,14 @@ router.get('/sendRerervation/:id', async (req, res) => {
             checkout: null
         }
         let response = await axios.post("http://localhost:8080/api/reserve", sendReservation);
-        // sendStatus = (response == "Reservation recorded :)") ? "Seu pedido de reserva foi enviado com sucesso, aguarde a confirmação!" : "Ocorreu um erro no seu pedido de reserva, tente novamente!";
     }
-    // res.redirect('/home');
-    // res.redirect('/home', { alert: sendReservation });
+    //res.redirect('/home');
 })
 
 router.get('/finalizeReservation/:id', async (req, res) => {
     let id = req.params.id;
     let user = userApp;
     let reservation = await getOneReservation(id);
-    console.log(reservation)
     //Atualiza sala
     let dataUpdateRoom = {
         status: "disponível",
@@ -168,6 +158,24 @@ router.get('/finalizeReservation/:id', async (req, res) => {
     let responseReservation = await updateReservation(id, dataUpdateReservation);
     // res.redirect('/reservas')
 
+});
+
+router.post('/logar', (req, res) => {
+    let uid = req.body.idAcademico;
+    let password = req.body.senha;
+
+    try {
+        users.forEach(user => {
+            
+            if (user.id == uid && user.password == password) {
+                res.redirect('/home')
+            } else {
+                res.redirect('/errorLogin');
+            }
+        });
+    } catch (error) {
+        console.error("Ocorreu um erro : " + error.message);
+    }
 });
 
 /* <<< ROTAS DE FILTROS >>> */

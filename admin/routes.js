@@ -1,12 +1,8 @@
 const express = require("express");
 const { getReservations, getOneReservation, updateReservation } = require("./models/Reservations");
 const router = express.Router();
-const {mockRooms, getRooms, updateRoom } = require("./models/Rooms")
+const { mockRooms, getRooms, updateRoom } = require("./models/Rooms")
 
-//Tentativa
-//const rooms = require("./model/Rooms");
-//const { getRooms} = require('./models/rooms')
-//
 router.use(express.static('public'));
 
 // ROTAS DE PÁGINAS
@@ -15,8 +11,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/home', async (req, res) => {
-    // let rooms = await getRooms();
-    let rooms = mockRooms;
+    let rooms = await getRooms();
+    // let rooms = mockRooms;
 
     rooms = rooms.sort((a, b) => a.data.order - b.data.order)
     res.render("pages/home", { rooms: rooms, filter: false });
@@ -108,4 +104,12 @@ router.get('/denyReservation/:id', async (req, res) => {
     // 
 
 });
+
+router.get('/editRoom/:id', async (req, res) => {
+    let id = req.params.id;
+    let roomData = req.body;
+   
+    let response = updateRoom(id, roomData)
+});
+
 module.exports = router;

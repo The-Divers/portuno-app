@@ -1,26 +1,10 @@
 let users = [
     {
-        uid: 8976543,
-        name: "Wellington Sarmento",
-        password: "wwagner33",
-        email: "wwelignton@virtual.ufc",
-        phoneNumber: "(85)9193929596",
-        userType: "professor"
-    },
-    {
         id: 509697,
         name: "João Victor Alves",
-        password: "Jv4984538171",
+        password: "Jv123456",
         email: "joaovba2002@alu.ufc",
         phoneNumber: "(85)992136733",
-        userType: "aluno"
-    },
-    {
-        id: 567890,
-        name: "Vládia Helen Ferreira Farias",
-        password: "vladiahelenff",
-        email: "vladiahelenff@alu.ufc",
-        phoneNumber: "(85)912992115",
         userType: "aluno"
     }
 ];
@@ -28,10 +12,21 @@ let users = [
 let userApp = {
     uid: 509697,
     name: "João Victor Alves",
-    password: "Jv4984538171",
+    password: "Jv123456",
     email: "joaovba2002@alu.ufc",
     phoneNumber: "(85)992136733",
     userType: "aluno"
 }
+
+// function authentication(user) {
+//     return {
+//         uid: user.id,
+//         name: user.name,
+//         password: user.password,
+//         email: user.email,
+//         phoneNumber: user.phoneNumber,
+//         userType: user.userType
+//     }
+// }
 
 module.exports = { users, userApp };

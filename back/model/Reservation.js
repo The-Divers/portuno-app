@@ -14,7 +14,7 @@ const createReservation = async (req, res) => {
         // Operação de cadastro
         await firestore.collection('reservations').doc().set(data);
         // Feedback positivo
-        res.send('Reservation recorded :)')
+        res.send('Reservation recorded :)');
     } catch (error) {
         // Feedback negativo
         res.status(400).send(error.message);

@@ -8,7 +8,7 @@ const routes = require("./routes");
 app.use(bodyParser.urlencoded({ extended: true }))
 
 const port = 5000;
-const address = "localhost";
+const address = "192.168.18.11";
 
 const expressLayouts = require('express-ejs-layouts');
 app.use(express.static('public'));

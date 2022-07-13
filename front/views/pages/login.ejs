@@ -2,6 +2,12 @@
 
     <div id="container-login" class="container component">
 
+        <% if (alert != null) { %>
+            <div class="alert alert-danger mt-4 alert-dismissible fade show" role="alert" style="margin-bottom:-50px;">
+                <%= alert %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
 
         <!-- Logo -->
         <img id="logo-login" src="img/logo.png" class="rounded mx-auto d-block"
@@ -9,14 +15,14 @@
 
 
         <!-- Fomrulário de login -->
-        <form id="form-login" action="home" method="get">
+        <form id="form-login" action="/logar" method="post">
             <div class="mb-3">
                 <label for="idAcademico" class="form-label">Matrícula/Siape</label>
-                <input type="text" class="form-control" id="idAcademico" required pattern="[0-9]{6,7}" title=" Matrícula ou 7 dígitos numéricos para matrícula ou siape, respectivamente">
+                <input name="idAcademico" type="text" class="form-control" id="idAcademico" required pattern="[0-9]{6,7}" title=" Matrícula ou 7 dígitos numéricos para matrícula ou siape, respectivamente">
             </div>
             <div class="mb-3">
                 <label for="senha" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="senha" required>
+                <input name="senha" type="password" class="form-control" id="senha" required>
             </div>
             <div id="aviso-login" class="alert alert-danger" role="alert" style="display:none;">
                 Entre com matrícula/siape e senha correta!

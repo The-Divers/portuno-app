@@ -21,7 +21,6 @@ app.use(bodyParser.json());
 app.use('/api', router.routes);
 
 //Definição de onde a Api será ouvida
-app.listen(config.port, async () => {
-    console.log( await readRooms())
+app.listen(config.port, () => {
     console.log(`PORTUNO is listening on url ${config.url}`)
 })
