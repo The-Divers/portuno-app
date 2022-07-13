@@ -1,13 +1,18 @@
 const express = require("express");
 const { getReservations, getOneReservation, updateReservation } = require("./models/Reservations");
 const router = express.Router();
+const { users } = require('./models/Users')
 const { mockRooms, getRooms, updateRoom } = require("./models/Rooms")
 
 router.use(express.static('public'));
 
 // ROTAS DE PÁGINAS
 router.get('/', (req, res) => {
-    res.render("pages/login");
+    res.render("pages/login", { alert: null });
+});
+
+router.get('/errorLogin', (req, res) => {
+    res.render("pages/login", { alert: "Entre com dados de login corretos!" });
 });
 
 router.get('/home', async (req, res) => {
@@ -86,8 +91,6 @@ router.get('/alowReservation/:id', async (req, res) => {
 
         await updateRoom(reservation.roomId, updateRoomData);
     }
-    // 
-
 });
 
 router.get('/denyReservation/:id', async (req, res) => {
@@ -108,8 +111,27 @@ router.get('/denyReservation/:id', async (req, res) => {
 router.get('/editRoom/:id', async (req, res) => {
     let id = req.params.id;
     let roomData = req.body;
-   
+
     let response = updateRoom(id, roomData)
+});
+
+router.post('/logar', (req, res) => {
+    // let uid = req.body.siape;
+    // let password = req.body.senha;
+
+    // try {
+    //     users.forEach(user => {
+
+    //         if (user.id == uid && user.password == password) {
+    //             res.redirect('/home')
+    //         } else {
+    //             res.redirect('/errorLogin');
+    //         }
+    //     });
+    // } catch (error) {
+    //     console.error("Ocorreu um erro : " + error.message);
+    // }
+    res.redirect('/home');
 });
 
 module.exports = router;

@@ -1,0 +1,36 @@
+<%- contentFor('contentPage') %>
+
+    <div id="container-login" class="container component">
+
+        <% if (alert != null) { %>
+            <div class="alert alert-danger mt-4 alert-dismissible fade show" role="alert" style="margin-bottom:-50px;">
+                <%= alert %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
+
+        <!-- Logo -->
+        <img id="logo-login" src="img/logo.png" class="rounded mx-auto d-block"
+            alt="Portuno - sistema de ocupação de salas">
+
+
+        <!-- Fomrulário de login -->
+        <form id="form-login" action="logar" method="post">
+            <div class="mb-3">
+                <label for="siape" class="form-label">Siape</label>
+                <input name="siape" type="text" class="form-control" id="siape" required pattern="[0-9]{7}" title=" 7 dígitos numéricos para o siape!">
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input name="senha" type="password" class="form-control" id="senha" required>
+            </div>
+            <div id="aviso-login" class="alert alert-danger" role="alert" style="display:none;">
+                Entre com matrícula/siape e senha correta!
+            </div>
+            <div id="btn-login-container" class="d-grid gap-2 col-6 mx-auto">
+                <input id="btn-login" class="btn btn-primary" value="Logar" type="submit">
+            </div>
+        </form>
+
+
+    </div>

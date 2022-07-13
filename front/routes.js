@@ -89,7 +89,8 @@ router.get('/reservas', async (req, res) => {
 });
 
 router.get('/perfil', (req, res) => {
-    res.render("pages/perfil");
+    let user = userApp;
+    res.render("pages/perfil", { user: user });
 });
 
 
@@ -166,7 +167,7 @@ router.post('/logar', (req, res) => {
 
     try {
         users.forEach(user => {
-            
+
             if (user.id == uid && user.password == password) {
                 res.redirect('/home')
             } else {
