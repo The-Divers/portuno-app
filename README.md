@@ -56,6 +56,7 @@ Esta aplicação é referente ao desenvolvimento de um aplicativo que tem como o
 | Lazaro Natanael da Silva |
 | Marcos Erick Gomes Miranda |
 | Vládia Helen Ferreira Farias |
+| Colaborador - Deivid Freitas |
 
 ### 🎯 Mapa de Requisitos
 
